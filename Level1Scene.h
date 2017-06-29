@@ -22,6 +22,7 @@ private:
 
 	void loadBackGround();
 	void loadPlanetEarth();
+    void loadMovementArrows();
 	void loadHeroSpaceShip();
 	void loadHeroSpaceShipCenter();
 	void loadHeroSpaceShipLeft();
@@ -45,25 +46,31 @@ private:
 	// now i use the main menu scene
 	void startMainMenuScene();
 	void startNextLevel();
+    
+    void moveHero();
+    void moveHeroLeft();
+    void moveHeroRight();
+    
+    bool isLeftArrowPressed();
+    bool isRightArrowPressed();
+    
+    void touchBegan(const vector<cocos2d::Touch*> touch, cocos2d::Event* event);
+    void touchMoved(const vector<cocos2d::Touch*> touch, cocos2d::Event* event);
+    void touchEnded(const vector<cocos2d::Touch*> touch, cocos2d::Event* event);
 
-	void keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event);
-	void keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event);
-	double keyPressedDuration(cocos2d::EventKeyboard::KeyCode code);
-	bool isKeyPressed(cocos2d::EventKeyboard::KeyCode);
-	
-	cocos2d::EventListenerKeyboard keyboardListener;
 	cocos2d::Sprite* backGround;
 	cocos2d::Sprite* earth;
 	cocos2d::Sprite* heroSpaceShip;
 	cocos2d::Sprite* level;
-
-	map<cocos2d::EventKeyboard::KeyCode,
-		std::chrono::high_resolution_clock::time_point> keysDuration;
+    cocos2d::Sprite* leftArrow;
+    cocos2d::Sprite* rightArrow;
 
 	vector < cocos2d::Sprite* > heroBullets;
 	vector < cocos2d::Sprite* > enemies;
 	vector < cocos2d::Sprite* > enemyBullets;
 	vector < cocos2d::Sprite* > heroLifes;
+    
+    cocos2d::EventListenerTouchAllAtOnce* touchListener;
 	
 	// units
 	double speedHeroSpaceShip;
@@ -87,6 +94,8 @@ private:
 	bool win;
 	bool lose;
 	bool started;
+    bool leftArrowPressed;
+    bool rightArrowPressed;
 
 	bool isPaused;
 };

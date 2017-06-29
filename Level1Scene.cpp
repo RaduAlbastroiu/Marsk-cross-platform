@@ -36,21 +36,24 @@ bool Level1Scene::init()
 
 	this->loadBackGround();
 	this->loadPlanetEarth();
+    this->loadMovementArrows();
 	this->loadHeroSpaceShip();
 	this->loadEnemies();
 	this->loadHeroLifes();
 
 	isPaused = false;
 
-	auto keyboardListener = EventListenerKeyboard::create();
-	keyboardListener->onKeyPressed = CC_CALLBACK_2(Level1Scene::keyPressed, this);
-	keyboardListener->onKeyReleased = CC_CALLBACK_2(Level1Scene::keyReleased, this);
-	
-	Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(keyboardListener, this); 
+    touchListener = EventListenerTouchAllAtOnce::create();
+
+    touchListener->onTouchesBegan = CC_CALLBACK_2(Level1Scene::touchBegan, this);
+    touchListener->onTouchesMoved = CC_CALLBACK_2(Level1Scene::touchMoved, this);
+    touchListener->onTouchesEnded = CC_CALLBACK_2(Level1Scene::touchEnded, this);
+    
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener, this);
 	
 	this->scheduleUpdate();
-	
-	return true;
+
+    return true;
 }
 
 void Level1Scene::loadBackGround()
@@ -91,6 +94,24 @@ void Level1Scene::loadPlanetEarth()
 	this->addChild(earth);
 }
 
+
+// load movement arrows
+void Level1Scene::loadMovementArrows()
+{
+    leftArrow = cocos2d::Sprite::create("res/mars.png");
+    leftArrow->setAnchorPoint(cocos2d::Vec2(0.5,0.5));
+    leftArrow->setScale(0.3);
+    leftArrow->setPosition(this->getBoundingBox().getMaxX() * 0.075, this->getBoundingBox().getMaxY() * 0.20 );
+    
+    
+    rightArrow = cocos2d::Sprite::create("res/mars.png");
+    rightArrow->setAnchorPoint(cocos2d::Vec2(0.5,0.5));
+    rightArrow->setScale(0.3);
+    rightArrow->setPosition(this->getBoundingBox().getMaxX() * 0.925, this->getBoundingBox().getMaxY() * 0.20 );
+
+    this->addChild(leftArrow);
+    this->addChild(rightArrow);
+}
 
 void Level1Scene::loadHeroSpaceShip()
 {
@@ -362,56 +383,58 @@ void Level1Scene::startNextLevel()
 	Director::getInstance()->replaceScene(nextLevel);
 }
 
-void Level1Scene::keyPressed(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event)
+void Level1Scene::touchBegan(const vector<cocos2d::Touch*> touch, cocos2d::Event* event)
 {
-	if (keysDuration.find(keyCode) == keysDuration.end()) 
-		keysDuration[keyCode] = std::chrono::high_resolution_clock::now();
-
-	if (keyCode == EventKeyboard::KeyCode::KEY_SPACE)
-	{
-		if(finishTime == 0)
-			loadHeroBullet();
-	}
+    for(auto oneTouch : touch)
+    {
+        if(leftArrow->getBoundingBox().containsPoint(oneTouch->getLocation()))
+        {
+            leftArrowPressed = true;
+        }
+    
+        if(rightArrow->getBoundingBox().containsPoint(oneTouch->getLocation()))
+        {
+            rightArrowPressed = true;
+        }
+    }
+    
+    if(leftArrowPressed == true && rightArrowPressed == true)
+    {
+        loadHeroBullet();
+    }
 }
 
-void Level1Scene::keyReleased(cocos2d::EventKeyboard::KeyCode keyCode, cocos2d::Event *event)
+void Level1Scene::touchMoved(const vector<cocos2d::Touch*> touch, cocos2d::Event* event)
 {
-	if (keyCode == EventKeyboard::KeyCode::KEY_LEFT_ARROW ||
-		keyCode == EventKeyboard::KeyCode::KEY_RIGHT_ARROW)
-	{
-		if(finishTime == 0)
-			loadHeroSpaceShipCenter();
-	}
-
-	keysDuration.erase(keyCode);
+    
 }
 
-double Level1Scene::keyPressedDuration(cocos2d::EventKeyboard::KeyCode code) 
+void Level1Scene::touchEnded(const vector<cocos2d::Touch*> touch, cocos2d::Event* event)
 {
-	if (!isKeyPressed(code))
-		return 0;  
-
-	return std::chrono::duration_cast<std::chrono::milliseconds>
-		(std::chrono::high_resolution_clock::now() - keysDuration[code]).count();
+    for(auto oneTouch : touch)
+    {
+        if(leftArrow->getBoundingBox().containsPoint(oneTouch->getLocation()))
+        {
+            leftArrowPressed = false;
+        }
+        
+        if(rightArrow->getBoundingBox().containsPoint(oneTouch->getLocation()))
+        {
+            rightArrowPressed = false;
+        }
+    }
+    
+    if(rightArrowPressed == leftArrowPressed)
+        loadHeroSpaceShipCenter();
 }
 
-bool Level1Scene::isKeyPressed(cocos2d::EventKeyboard::KeyCode code) 
-{
-	if (keysDuration.find(code) != keysDuration.end())
-		return true;
-	return false;
-}
 
 void Level1Scene::update(float delta)
 {
 	if (finishTime == 0)
 	{
-		if (isKeyPressed(EventKeyboard::KeyCode::KEY_ESCAPE))
-		{
-			startMainMenuScene();
-		}
         
-		if (isKeyPressed(EventKeyboard::KeyCode::KEY_LEFT_ARROW))
+		if (leftArrowPressed && !rightArrowPressed)
 		{
 			if (this->getBoundingBox().containsPoint(
 				Vec2(heroSpaceShip->getBoundingBox().getMinX() - speedHeroSpaceShip,
@@ -422,7 +445,7 @@ void Level1Scene::update(float delta)
 			}
 		}
 
-		if (isKeyPressed(EventKeyboard::KeyCode::KEY_RIGHT_ARROW))
+		if (rightArrowPressed && !leftArrowPressed)
 		{
 			if (this->getBoundingBox().containsPoint(
 				Vec2(heroSpaceShip->getBoundingBox().getMaxX() + speedHeroSpaceShip,
@@ -432,7 +455,7 @@ void Level1Scene::update(float delta)
 				heroSpaceShip->runAction(MoveBy::create(delta, Vec2(speedHeroSpaceShip, 0)));
 			}
 		}
-
+        
 		if (startTime >= 0)
 		{
 			startTime -= delta;
