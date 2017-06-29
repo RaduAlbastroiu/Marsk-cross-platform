@@ -27,7 +27,7 @@ bool Intro::init()
 
 void Intro::loadMarsk()
 {
-	marsk = cocos2d::Sprite::create("marsk.png");
+	marsk = cocos2d::Sprite::create("res/marsk.png");
 	marsk->setScale(0.8);
 	marsk->setAnchorPoint(cocos2d::Vec2(0.5, 0.5));
 	marsk->setPosition(this->getBoundingBox().getMidX(), this->getBoundingBox().getMidY() + marsk->getBoundingBox().size.height * 1.1);
@@ -39,7 +39,7 @@ void Intro::loadMarsk()
 void Intro::loadMenuNewGame()
 {
 	// new game sprite
-	newGameMenu = cocos2d::MenuItemImage::create("start_on.png", "start_off.png", CC_CALLBACK_1(Intro::nextScene, this));
+	newGameMenu = cocos2d::MenuItemImage::create("res/start_on.png", "res/start_off.png", CC_CALLBACK_1(Intro::nextScene, this));
 	newGameMenu->setScale(0.8);
 	newGameMenu->setAnchorPoint(cocos2d::Vec2(0.5, 0.5));
 	newGameMenu->setPosition(this->getBoundingBox().getMidX(), this->getBoundingBox().getMidY());
@@ -54,7 +54,7 @@ void Intro::loadMenuNewGame()
 void Intro::loadMenuQuit()
 {
 	// quit game sprite
-	quitMenu = cocos2d::MenuItemImage::create("quit_on.png", "quit_off.png", CC_CALLBACK_1(Intro::menuCloseCallback, this));
+	quitMenu = cocos2d::MenuItemImage::create("res/quit_on.png", "res/quit_off.png", CC_CALLBACK_1(Intro::menuCloseCallback, this));
 	quitMenu->setScale(0.8);
 	quitMenu->setAnchorPoint(cocos2d::Vec2(0.5, 0.5));
 	quitMenu->setPosition(this->getBoundingBox().getMidX(), this->getBoundingBox().getMidY() - quitMenu->getBoundingBox().size.height);
@@ -68,7 +68,7 @@ void Intro::loadMenuQuit()
 
 void Intro::loadBackGround()
 {
-	backGround = cocos2d::Sprite::create("background.png");
+	backGround = cocos2d::Sprite::create("res/background.png");
 
 	double scaleX = double(Director::getInstance()->getVisibleSize().width) / double(backGround->getBoundingBox().size.width);
 	double scaleY = double(Director::getInstance()->getVisibleSize().height) / double(backGround->getBoundingBox().size.height);
@@ -87,7 +87,7 @@ void Intro::loadBackGround()
 void Intro::loadPlanetEarth()
 {
 	// loading earth
-	earth = cocos2d::Sprite::create("earth.png");
+	earth = cocos2d::Sprite::create("res/earth.png");
 
 	double scaleX = double(Director::getInstance()->getVisibleSize().width) / double(earth->getBoundingBox().size.width);
 	double scaleY = double(Director::getInstance()->getVisibleSize().height) / double(earth->getBoundingBox().size.height);
@@ -106,7 +106,7 @@ void Intro::loadPlanetEarth()
 void Intro::loadPlanetMars()
 {
 	// loading mars
-	mars = cocos2d::Sprite::create("mars.png");
+	mars = cocos2d::Sprite::create("res/mars.png");
 
 	double scaleX = double(Director::getInstance()->getVisibleSize().width) / double(mars->getBoundingBox().size.width);
 	double scaleY = double(Director::getInstance()->getVisibleSize().height) / double(mars->getBoundingBox().size.height);

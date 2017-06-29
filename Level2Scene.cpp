@@ -55,7 +55,7 @@ bool Level2Scene::init()
 
 void Level2Scene::loadBackGround()
 {
-	backGround = cocos2d::Sprite::create("background.png");
+	backGround = cocos2d::Sprite::create("res/background.png");
 
 	double scaleX = double(Director::getInstance()->getVisibleSize().width) / double(backGround->getBoundingBox().size.width);
 	double scaleY = double(Director::getInstance()->getVisibleSize().height) / double(backGround->getBoundingBox().size.height);
@@ -74,7 +74,7 @@ void Level2Scene::loadBackGround()
 void Level2Scene::loadPlanetMars()
 {
 	// loading mars
-	mars = cocos2d::Sprite::create("mars.png");
+	mars = cocos2d::Sprite::create("res/mars.png");
 
 	double scaleX = double(Director::getInstance()->getVisibleSize().width) / double(mars->getBoundingBox().size.width);
 	double scaleY = double(Director::getInstance()->getVisibleSize().height) / double(mars->getBoundingBox().size.height);
@@ -94,7 +94,7 @@ void Level2Scene::loadPlanetMars()
 
 void Level2Scene::loadHeroSpaceShip()
 {
-	heroSpaceShip = cocos2d::Sprite::create("elon_Back.png");
+	heroSpaceShip = cocos2d::Sprite::create("res/elon_Back.png");
 	heroSpaceShip->setAnchorPoint(Vec2(0.5, 0.5));
 	heroSpaceShip->setPosition(this->getBoundingBox().getMidX(), this->getBoundingBox().size.height / 7);
 	heroSpaceShip->setScale(0.3);
@@ -103,24 +103,24 @@ void Level2Scene::loadHeroSpaceShip()
 
 void Level2Scene::loadHeroSpaceShipCenter()
 {
-	heroSpaceShip->setTexture("elon_Back.png");
+	heroSpaceShip->setTexture("res/elon_Back.png");
 }
 
 void Level2Scene::loadHeroSpaceShipLeft()
 {
-	heroSpaceShip->setTexture("elonLeft.png");
+	heroSpaceShip->setTexture("res/elonLeft.png");
 }
 
 void Level2Scene::loadHeroSPaceShipRight()
 {
-	heroSpaceShip->setTexture("elonRight.png");
+	heroSpaceShip->setTexture("res/elonRight.png");
 }
 
 void Level2Scene::loadHeroLifes()
 {
 	for (int i = 1; i <= heroNrLifes; i++)
 	{
-		auto life = Sprite::create("life.png");
+		auto life = Sprite::create("res/life.png");
 		life->setAnchorPoint(Vec2(0.5, 0.5));
 		life->setScale(0.125);
 		int x = Director::getInstance()->getVisibleSize().width - (i * life->getBoundingBox().size.width);
@@ -133,7 +133,7 @@ void Level2Scene::loadHeroLifes()
 
 void Level2Scene::loadHeroBullet()
 {
-	auto bullet = Sprite::create("laserGreen.png");
+	auto bullet = Sprite::create("res/laserGreen.png");
 
 	bullet->setScale(0.2);
 	bullet->setScaleX(0.3);
@@ -153,7 +153,7 @@ void Level2Scene::loadEnemyBullet()
 {
 	int enemyIndex = rand() % enemies.size();
 
-	auto bullet = Sprite::create("laserRed.png");
+	auto bullet = Sprite::create("res/laserRed.png");
 
 	bullet->setScale(0.2);
 	bullet->setScaleX(0.3);
@@ -171,7 +171,7 @@ void Level2Scene::loadEnemyBullet()
 
 void Level2Scene::loadEnemy(int posX, int posY)
 {
-	auto enemy = Sprite::create("redShip.png");
+	auto enemy = Sprite::create("res/redShip.png");
 
 	enemy->setScale(0.2);
 	enemy->setAnchorPoint(Vec2(0.5, 0.5));
@@ -305,7 +305,7 @@ void Level2Scene::heroSpaceShipFlashing()
 // winning moment
 void Level2Scene::winningMoment()
 {
-	auto win = Sprite::create("youWin.png");
+	auto win = Sprite::create("res/youWin.png");
 
 	win->setScale(0.4);
 	win->setAnchorPoint(Vec2(0.5, 0.5));
@@ -320,7 +320,7 @@ void Level2Scene::winningMoment()
 // losing moment
 void Level2Scene::losingMoment()
 {
-	auto lose = Sprite::create("youLose.png");
+	auto lose = Sprite::create("res/youLose.png");
 
 	lose->setScale(0.4);
 	lose->setAnchorPoint(Vec2(0.5, 0.5));
@@ -334,7 +334,7 @@ void Level2Scene::losingMoment()
 
 void Level2Scene::showLevel()
 {
-	level = cocos2d::Sprite::create("lvl2.png");
+	level = cocos2d::Sprite::create("res/lvl2.png");
 
 	level->setAnchorPoint(Vec2(0.5, 0.5));
 	level->setScale(0.3);

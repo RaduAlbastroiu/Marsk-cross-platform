@@ -1,7 +1,6 @@
 #pragma once
 
 #include "cocos2d.h"
-#include "InputListener.h"
 
 class Intro : public cocos2d::Scene
 {

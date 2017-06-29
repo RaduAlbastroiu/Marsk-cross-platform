@@ -1,7 +1,6 @@
 #pragma once
 
 #include "cocos2d.h"
-#include "InputListener.h"
 #include "Intro.h"
 #include <map>
 #include <vector>

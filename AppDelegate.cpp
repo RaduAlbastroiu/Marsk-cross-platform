@@ -1,13 +1,6 @@
 #include "AppDelegate.h"
-#include "HelloWorldScene.h"
-#include "GraphicsScene.h"
-#include "TouchScene.h"
-#include "MouseScene.h"
-#include "KeyboardScene.h"
-#include "AudioScene.h"
 #include "SimpleAudioEngine.h"
 
-#include "InputListener.h"
 #include "Intro.h"
 #include "Level1Scene.h"
 #include "Level2Scene.h"
@@ -107,14 +100,6 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	//auto inputListener = InputListener();
 
     // create a scene. it's an autorelease object
-	/*
-	auto hello = HelloWorld::createScene();
-	auto scene = GraphicsScene::createScene();
-	auto touchScene = TouchScene::createScene();
-	auto mouseScene = MouseScene::createScene();
-	auto keyboardScene = KeyboardScene::createScene();
-	auto audioScene = AudioScene::createScene();
-	*/
 
     auto intro = Intro::createScene();
 	//auto level = Level1Scene::createScene();
