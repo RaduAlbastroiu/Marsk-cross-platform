@@ -23,6 +23,10 @@ private:
 	void loadBackGround();
 	void loadPlanetEarth();
     void loadMovementArrows();
+    void loadMovementArrowLeftUnSelected(){leftArrow->setTexture("res/leftArrow.png");}
+    void loadMovementArrowLeftSelected(){leftArrow->setTexture("res/leftArrowPressed.png");}
+    void loadMovementArrowRightUnSelected(){rightArrow->setTexture("res/rightArrow.png");}
+    void loadMovementArrowRightSelected(){rightArrow->setTexture("res/rightArrowPressed.png");}
 	void loadHeroSpaceShip();
 	void loadHeroSpaceShipCenter();
 	void loadHeroSpaceShipLeft();
@@ -71,6 +75,8 @@ private:
 	vector < cocos2d::Sprite* > heroLifes;
     
     cocos2d::EventListenerTouchAllAtOnce* touchListener;
+    cocos2d::Touch* leftArrowTouch;
+    cocos2d::Touch* rightArrowTouch;
 	
 	// units
 	double speedHeroSpaceShip;

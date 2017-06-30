@@ -98,19 +98,19 @@ void Level1Scene::loadPlanetEarth()
 // load movement arrows
 void Level1Scene::loadMovementArrows()
 {
-    leftArrow = cocos2d::Sprite::create("res/mars.png");
+    leftArrow = cocos2d::Sprite::create("res/leftArrow.png");
     leftArrow->setAnchorPoint(cocos2d::Vec2(0.5,0.5));
-    leftArrow->setScale(0.3);
+    leftArrow->setScale(0.5);
     leftArrow->setPosition(this->getBoundingBox().getMaxX() * 0.075, this->getBoundingBox().getMaxY() * 0.20 );
     
     
-    rightArrow = cocos2d::Sprite::create("res/mars.png");
+    rightArrow = cocos2d::Sprite::create("res/rightArrow.png");
     rightArrow->setAnchorPoint(cocos2d::Vec2(0.5,0.5));
-    rightArrow->setScale(0.3);
+    rightArrow->setScale(0.5);
     rightArrow->setPosition(this->getBoundingBox().getMaxX() * 0.925, this->getBoundingBox().getMaxY() * 0.20 );
 
-    this->addChild(leftArrow);
-    this->addChild(rightArrow);
+    this->addChild(leftArrow, 10);
+    this->addChild(rightArrow, 10);
 }
 
 void Level1Scene::loadHeroSpaceShip()
@@ -390,11 +390,15 @@ void Level1Scene::touchBegan(const vector<cocos2d::Touch*> touch, cocos2d::Event
         if(leftArrow->getBoundingBox().containsPoint(oneTouch->getLocation()))
         {
             leftArrowPressed = true;
+            loadMovementArrowLeftSelected();
+            leftArrowTouch = oneTouch;
         }
     
         if(rightArrow->getBoundingBox().containsPoint(oneTouch->getLocation()))
         {
             rightArrowPressed = true;
+            loadMovementArrowRightSelected();
+            rightArrowTouch = oneTouch;
         }
     }
     
@@ -411,21 +415,33 @@ void Level1Scene::touchMoved(const vector<cocos2d::Touch*> touch, cocos2d::Event
 
 void Level1Scene::touchEnded(const vector<cocos2d::Touch*> touch, cocos2d::Event* event)
 {
+    bool left = false;
+    bool right = false;
     for(auto oneTouch : touch)
     {
-        if(leftArrow->getBoundingBox().containsPoint(oneTouch->getLocation()))
+        if(oneTouch == leftArrowTouch)
         {
-            leftArrowPressed = false;
+            left = true;
         }
-        
-        if(rightArrow->getBoundingBox().containsPoint(oneTouch->getLocation()))
+        if(oneTouch == rightArrowTouch)
         {
-            rightArrowPressed = false;
+            right = true;
         }
     }
     
-    if(rightArrowPressed == leftArrowPressed)
+    if(left == true && leftArrowPressed)
+    {
+        leftArrowPressed = false;
+        loadMovementArrowLeftUnSelected();
         loadHeroSpaceShipCenter();
+    }
+    
+    if(right == true && rightArrowPressed)
+    {
+        rightArrowPressed = false;
+        loadMovementArrowRightUnSelected();
+        loadHeroSpaceShipCenter();
+    }
 }
 
 
