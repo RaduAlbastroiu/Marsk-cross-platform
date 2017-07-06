@@ -8,15 +8,42 @@
 
 #include "HeroProiectile.h"
 
-HeroProiectile::HeroProiectile(cocos2d::Scene* scene, Sprite* heroSpaceShip, float speed, float scale)
+// constructor
+HeroProiectile::HeroProiectile(cocos2d::Scene* aScene, Sprite* aHeroSpaceShip, float aSpeed, float aScale)
 {
-    auto bullet = Sprite::create("res/laserGreen.png");
+    // set the scene for this proiectile
+    scene = aScene;
+    // set speed
+    speed = aSpeed;
     
-    bullet->setScale(scale);
-    bullet->setAnchorPoint(Vec2(0.5, 0.5));
-    bullet->setPosition(Vec2(heroSpaceShip->getBoundingBox().getMidX(),
-                             heroSpaceShip->getBoundingBox().getMaxY() + bullet->getBoundingBox().size.height/2));
+    proiectile = Sprite::create("res/laserGreen.png");
     
-    bullet->runAction(MoveTo::create(speed, Vec2(bullet->getBoundingBox().getMidX(),
-                                                           scene->getBoundingBox().size.height + bullet->getBoundingBox().size.height + 1)));
+    
+    proiectile->setScale(aScale);
+    proiectile->setAnchorPoint(Vec2(0.5, 0.5));
+    proiectile->setPosition(Vec2(aHeroSpaceShip->getBoundingBox().getMidX(),
+                             aHeroSpaceShip->getBoundingBox().getMaxY() + proiectile->getBoundingBox().size.height/2));
+    
+    proiectile->runAction(MoveTo::create(aSpeed, Vec2(proiectile->getBoundingBox().getMidX(),
+                                                           scene->getBoundingBox().size.height + proiectile->getBoundingBox().size.height + 1)));
+    
+    scene->addChild(proiectile);
+}
+
+// destructor
+HeroProiectile::~HeroProiectile()
+{
+    scene->removeChild(proiectile);
+}
+
+// returns true if there is a collision
+bool HeroProiectile::collisionWithObject(cocos2d::Sprite* aSprite)
+{
+    return proiectile->boundingBox().intersectsRect(aSprite->boundingBox());
+}
+
+// returns false if the proiectile is out of sight
+bool HeroProiectile::isStillInViewArea()
+{
+    return scene->getBoundingBox().intersectsRect(proiectile->getBoundingBox());
 }

@@ -7,16 +7,28 @@
 //
 
 #pragma once
+#include "Proiectile.h"
 #include "cocos2d.h"
 USING_NS_CC;
 
-class HeroProiectile : public cocos2d::Sprite
+class HeroProiectile : public Proiectile
 {
 public:
+    // constructor
     HeroProiectile(cocos2d::Scene* scene, Sprite* heroSpaceShip, float speed, float scale);
-    cocos2d::Sprite* GetProiectile();
+    // destructor
+    ~HeroProiectile();
+    
+    // override methods
+    
+    // collsision with another object
+    bool collisionWithObject(cocos2d::Sprite* aSprite) override;
+    // update position of a proiectile and if it fails will return false
+    bool isStillInViewArea() override;
     
 private:
+    float speed;
+    cocos2d::Scene* scene;
     cocos2d::Sprite* proiectile;
     
 };
