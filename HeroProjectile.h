@@ -11,13 +11,13 @@
 #include "cocos2d.h"
 USING_NS_CC;
 
-class HeroProiectile : public Proiectile
+class HeroProjectile : public Projectile
 {
 public:
     // constructor
-    HeroProiectile(cocos2d::Scene* scene, Sprite* heroSpaceShip, float speed, float scale);
+    HeroProjectile(cocos2d::Scene* scene, Sprite* heroSpaceShip, float speed, float scale);
     // destructor
-    ~HeroProiectile();
+    ~HeroProjectile();
     
     // override methods
     
@@ -29,6 +29,6 @@ public:
 private:
     float speed;
     cocos2d::Scene* scene;
-    cocos2d::Sprite* proiectile;
+    cocos2d::Sprite* projectile;
     
 };

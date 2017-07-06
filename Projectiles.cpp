@@ -1,5 +1,5 @@
 //
-//  Proiectiles.cpp
+//  Projectiles.cpp
 //  Marsk
 //
 //  Created by Albastroiu Radu on 7/6/17.
@@ -13,23 +13,18 @@
 USING_NS_CC;
 using namespace std;
 
-void Proiectiles::update()
+// Hero projectile verify for collision
+bool Projectiles::collisionWithEnemy(cocos2d::Sprite* aSprite)
 {
-    //do nothing now
-}
-
-// Hero proiectile shot verify for collision
-bool Proiectiles::collisionWithEnemy(cocos2d::Sprite* refSprite)
-{
-    // check all hero proiectiles
-    for(auto& proiectile : HeroProiectiles)
+    // check all hero projectiles
+    for(auto& someProjectile : HeroProjectiles)
     {
-        // if proiectile hit
-        if(proiectile->collisionWithObject(refSprite))
+        // if projectile hit
+        if(someProjectile->collisionWithObject(aSprite))
         {
-            // delete proiectile
-            auto it = find(HeroProiectiles.begin(), HeroProiectiles.end(), proiectile);
-            HeroProiectiles.erase(it);
+            // delete projectile
+            auto it = find(HeroProjectiles.begin(), HeroProjectiles.end(), someProjectile);
+            HeroProjectiles.erase(it);
             
             // return true for collision
             return true;

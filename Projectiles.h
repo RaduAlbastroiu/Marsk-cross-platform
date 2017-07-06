@@ -1,5 +1,5 @@
 //
-//  Proiectiles.h
+//  Projectiles.h
 //  Marsk
 //
 //  Created by Albastroiu Radu on 7/6/17.
@@ -14,12 +14,12 @@
 USING_NS_CC;
 using namespace std;
 
-class Proiectiles
+class Projectiles
 {
 public:
-    void update();
-    bool collisionWithEnemy(cocos2d::Sprite* obj);
+    void addHeroProjectile(cocos2d::Scene* aScene, Sprite* aHeroSpaceShip, float aSpeed, float aScale);
+    bool collisionWithEnemy(cocos2d::Sprite* aObj);
 private:
-    vector<Proiectile*> HeroProiectiles;
-    vector<Proiectile*> EnemyProiectiles;
+    vector<Projectile*> HeroProjectiles;
+    vector<Projectile*> EnemyProjectiles;
 };

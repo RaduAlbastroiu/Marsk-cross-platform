@@ -9,41 +9,41 @@
 #include "HeroProjectile.h"
 
 // constructor
-HeroProiectile::HeroProiectile(cocos2d::Scene* aScene, Sprite* aHeroSpaceShip, float aSpeed, float aScale)
+HeroProjectile::HeroProjectile(cocos2d::Scene* aScene, Sprite* aHeroSpaceShip, float aSpeed, float aScale)
 {
     // set the scene for this proiectile
     scene = aScene;
     // set speed
     speed = aSpeed;
     
-    proiectile = Sprite::create("res/laserGreen.png");
+    projectile = Sprite::create("res/laserGreen.png");
     
     
-    proiectile->setScale(aScale);
-    proiectile->setAnchorPoint(Vec2(0.5, 0.5));
-    proiectile->setPosition(Vec2(aHeroSpaceShip->getBoundingBox().getMidX(),
-                             aHeroSpaceShip->getBoundingBox().getMaxY() + proiectile->getBoundingBox().size.height/2));
+    projectile->setScale(aScale);
+    projectile->setAnchorPoint(Vec2(0.5, 0.5));
+    projectile->setPosition(Vec2(aHeroSpaceShip->getBoundingBox().getMidX(),
+                             aHeroSpaceShip->getBoundingBox().getMaxY() + projectile->getBoundingBox().size.height/2));
     
-    proiectile->runAction(MoveTo::create(aSpeed, Vec2(proiectile->getBoundingBox().getMidX(),
-                                                           scene->getBoundingBox().size.height + proiectile->getBoundingBox().size.height + 1)));
+    projectile->runAction(MoveTo::create(aSpeed, Vec2(projectile->getBoundingBox().getMidX(),
+                                                           scene->getBoundingBox().size.height + projectile->getBoundingBox().size.height + 1)));
     
-    scene->addChild(proiectile);
+    scene->addChild(projectile);
 }
 
 // destructor
-HeroProiectile::~HeroProiectile()
+HeroProjectile::~HeroProjectile()
 {
-    scene->removeChild(proiectile);
+    scene->removeChild(projectile);
 }
 
 // returns true if there is a collision
-bool HeroProiectile::collisionWithObject(cocos2d::Sprite* aSprite)
+bool HeroProjectile::collisionWithObject(cocos2d::Sprite* aSprite)
 {
-    return proiectile->boundingBox().intersectsRect(aSprite->boundingBox());
+    return projectile->boundingBox().intersectsRect(aSprite->boundingBox());
 }
 
 // returns false if the proiectile is out of sight
-bool HeroProiectile::isStillInViewArea()
+bool HeroProjectile::isStillInViewArea()
 {
-    return scene->getBoundingBox().intersectsRect(proiectile->getBoundingBox());
+    return scene->getBoundingBox().intersectsRect(projectile->getBoundingBox());
 }

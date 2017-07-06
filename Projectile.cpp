@@ -1,5 +1,5 @@
 //
-//  Proiectile.cpp
+//  Projectile.cpp
 //  Marsk
 //
 //  Created by Albastroiu Radu on 7/6/17.

@@ -1,5 +1,5 @@
 //
-//  Proiectile.h
+//  Projectile.h
 //  Marsk
 //
 //  Created by Albastroiu Radu on 7/6/17.
@@ -14,7 +14,7 @@
 USING_NS_CC;
 using namespace std;
 
-class Proiectile
+class Projectile
 {
 public:
     // verifies collsion with another object(sprite)
@@ -24,5 +24,5 @@ public:
     virtual bool isStillInViewArea() = 0;
     
     // destructor
-    virtual ~Proiectile() = default;
+    virtual ~Projectile() = default;
 };
