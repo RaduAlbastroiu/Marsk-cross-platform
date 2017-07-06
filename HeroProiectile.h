@@ -13,7 +13,7 @@ USING_NS_CC;
 class HeroProiectile : public cocos2d::Sprite
 {
 public:
-    HeroProiectile(cocos2d::Scene scene, Sprite* heroSpaceShip, float speed, float scale);
+    HeroProiectile(cocos2d::Scene* scene, Sprite* heroSpaceShip, float speed, float scale);
     cocos2d::Sprite* GetProiectile();
     
 private:

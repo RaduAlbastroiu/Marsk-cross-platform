@@ -8,7 +8,7 @@
 
 #include "HeroProiectile.h"
 
-HeroProiectile::HeroProiectile(cocos2d::Scene scene, Sprite* heroSpaceShip, float speed, float scale)
+HeroProiectile::HeroProiectile(cocos2d::Scene* scene, Sprite* heroSpaceShip, float speed, float scale)
 {
     auto bullet = Sprite::create("res/laserGreen.png");
     
@@ -18,7 +18,5 @@ HeroProiectile::HeroProiectile(cocos2d::Scene scene, Sprite* heroSpaceShip, floa
                              heroSpaceShip->getBoundingBox().getMaxY() + bullet->getBoundingBox().size.height/2));
     
     bullet->runAction(MoveTo::create(speed, Vec2(bullet->getBoundingBox().getMidX(),
-                                                           scene.getBoundingBox().size.height + bullet->getBoundingBox().size.height + 1)));
-    
-    this->addChild(bullet);
+                                                           scene->getBoundingBox().size.height + bullet->getBoundingBox().size.height + 1)));
 }
