@@ -6,7 +6,7 @@
 //
 //
 
-#include "HeroProiectile.h"
+#include "HeroProjectile.h"
 
 // constructor
 HeroProiectile::HeroProiectile(cocos2d::Scene* aScene, Sprite* aHeroSpaceShip, float aSpeed, float aScale)

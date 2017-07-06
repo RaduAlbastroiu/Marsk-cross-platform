@@ -7,4 +7,4 @@
 //
 
 #include <stdio.h>
-#include "Proiectile.h"
+#include "Projectile.h"

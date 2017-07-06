@@ -7,7 +7,7 @@
 //
 
 #pragma once
-#include "Proiectile.h"
+#include "Projectile.h"
 #include "cocos2d.h"
 USING_NS_CC;
 
