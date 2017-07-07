@@ -34,3 +34,18 @@ bool Projectiles::collisionWith(cocos2d::Sprite* aObj)
     
     return false;
 }
+
+void Projectiles::update()
+{
+    for(auto &someProjectile : projectilesContainer)
+    {
+        if(someProjectile->isStillInViewArea())
+            continue;
+        else
+        {
+            // delete projectile
+            auto it = find(projectilesContainer.begin(), projectilesContainer.end(), someProjectile);
+            projectilesContainer.erase(it);
+        }
+    }
+}

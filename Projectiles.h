@@ -8,7 +8,6 @@
 
 #pragma once
 #include "Projectile.h"
-#include "HeroProjectile.h"
 #include "ProjectileFactory.h"
 #include "cocos2d.h"
 #include <algorithm>
@@ -23,6 +22,7 @@ class Projectiles
 public:
     virtual void addProjectile(unique_ptr<Projectile> aProjectile) = 0;
     virtual bool collisionWith(cocos2d::Sprite* aObj);
+    virtual void update();
 
     virtual ~Projectiles() = default;
     
