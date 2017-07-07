@@ -7,7 +7,6 @@
 //
 
 #pragma once
-#include "HeroProjectile.h"
 #include "cocos2d.h"
 #include <algorithm>
 #include <vector>
