@@ -7,10 +7,17 @@
 //
 
 #include <stdio.h>
+#include "ProjectilesHero.h"
 #include "ProjectileHeroSimple.h"
 #include "ProjectileFactoryHero.h"
 
-Projectile* ProjectileFactoryHero::addProjectileSimple(cocos2d::Scene* aScene, Sprite* aHeroSpaceShip, float aSpeed, float aScale)
+ProjectileFactoryHero::ProjectileFactoryHero(ProjectilesHero* aProjectileHero):
+ProjectileContainer(aProjectileHero)
+{}
+
+void ProjectileFactoryHero::addProjectileSimple(cocos2d::Scene* aScene, Sprite* aHeroSpaceShip, float aSpeed, float aScale)
 {
-    return new ProjectileHeroSimple(aScene, aHeroSpaceShip, aSpeed, aScale);
+    Projectile* ptr = new ProjectileHeroSimple(aScene, aHeroSpaceShip, aSpeed, aScale);
+    
+    ProjectileContainer->addProjectile(ptr);
 }

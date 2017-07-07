@@ -8,18 +8,20 @@
 
 #pragma once
 #include "Projectile.h"
+#include "HeroProjectile.h"
+#include "ProjectileFactory.h"
 #include "cocos2d.h"
 #include <algorithm>
 #include <vector>
-USING_NS_CC;
+#include <utility>
 using namespace std;
+USING_NS_CC;
 
+// abstract class
 class Projectiles
 {
 public:
-    void addHeroProjectile(cocos2d::Scene* aScene, Sprite* aHeroSpaceShip, float aSpeed, float aScale);
-    bool collisionWithEnemy(cocos2d::Sprite* aObj);
-private:
-    vector<Projectile*> HeroProjectiles;
-    vector<Projectile*> EnemyProjectiles;
+    void addProjectile(unique_ptr<Projectile> aProjectile) = 0;
+    bool collisionWithEnemy(cocos2d::Sprite* aObj) = 0;
+
 };

@@ -19,6 +19,9 @@ using namespace std;
 class ProjectileFactoryEnemy : public ProjectileFactory
 {
 public:
-    Projectile* addProjectileSimple(cocos2d::Scene* aScene, Sprite* aHeroSpaceShip, float aSpeed, float aScale);
+    ProjectileFactoryEnemy(ProjectilesEnemy* aProjectiles);
+    void addProjectileSimple(cocos2d::Scene* aScene, Sprite* aHeroSpaceShip, float aSpeed, float aScale);
     
+private:
+    ProjectilesEnemy* ProjectileContainer;
 };
