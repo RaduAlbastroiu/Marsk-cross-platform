@@ -1,5 +1,5 @@
 //
-//  HeroProiectile.h
+//  ProiectileHeroSimple.h
 //  Marsk
 //
 //  Created by Albastroiu Radu on 7/5/17.
@@ -11,13 +11,13 @@
 #include "cocos2d.h"
 USING_NS_CC;
 
-class HeroProjectile : public Projectile
+class ProjectileHeroSimple : public Projectile
 {
 public:
     // constructor
-    HeroProjectile(cocos2d::Scene* scene, Sprite* heroSpaceShip, float speed, float scale);
+    ProjectileHeroSimple(cocos2d::Scene* scene, Sprite* heroSpaceShip, float speed, float scale);
     // destructor
-    ~HeroProjectile();
+    ~ProjectileHeroSimple();
     
     // override methods
     
@@ -32,3 +32,4 @@ private:
     cocos2d::Sprite* projectile;
     
 };
+  
