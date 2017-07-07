@@ -21,7 +21,12 @@ USING_NS_CC;
 class Projectiles
 {
 public:
-    void addProjectile(unique_ptr<Projectile> aProjectile) = 0;
-    bool collisionWithEnemy(cocos2d::Sprite* aObj) = 0;
+    virtual void addProjectile(unique_ptr<Projectile> aProjectile) = 0;
+    virtual bool collisionWith(cocos2d::Sprite* aObj);
+
+    virtual ~Projectiles() = default;
+    
+protected:
+    vector< unique_ptr <Projectile> > projectilesContainer;
 
 };

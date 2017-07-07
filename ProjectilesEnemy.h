@@ -23,9 +23,6 @@ class ProjectilesEnemy : public Projectiles
 {
 public:
     void addProjectile(Projectile* aProjectile);
-    bool collisionWithHero(cocos2d::Sprite* aObj);
     
-private:
-    vector< unique_ptr <Projectile> > Projectiles;
 };
 

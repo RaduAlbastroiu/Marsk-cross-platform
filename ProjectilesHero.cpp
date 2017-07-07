@@ -24,26 +24,5 @@ void ProjectilesHero::addProjectile(Projectile* aProjectile)
 {
     unique_ptr<Projectile> ptr = make_unique<Projectile>(*aProjectile);
     
-    this->Projectiles.push_back(ptr);
-}
-
-// Hero projectile verify for collision
-bool ProjectilesHero::collisionWithEnemy(cocos2d::Sprite* aSprite)
-{
-    // check all hero projectiles
-    for(auto& someProjectile : Projectiles)
-    {
-        // if projectile hit
-        if(someProjectile->collisionWithObject(aSprite))
-        {
-            // delete projectile
-            auto it = find(Projectiles.begin(), Projectiles.end(), someProjectile);
-            Projectiles.erase(it);
-            
-            // return true for collision
-            return true;
-        }
-    }
-    
-    return false;
+    projectilesContainer.push_back(ptr);
 }

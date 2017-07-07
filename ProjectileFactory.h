@@ -18,6 +18,7 @@ using namespace std;
 class ProjectileFactory
 {
 public:
-    void addProjectileSimple(cocos2d::Scene* aScene, Sprite* aHeroSpaceShip, float aSpeed, float aScale) = 0;
+    virtual void addProjectileSimple(cocos2d::Scene* aScene, Sprite* aHeroSpaceShip, float aSpeed, float aScale) = 0;
     
+    virtual ~ProjectileFactory() = default;
 };
