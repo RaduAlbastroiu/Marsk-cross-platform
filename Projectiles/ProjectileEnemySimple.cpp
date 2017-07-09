@@ -6,7 +6,7 @@
 //
 //
 
-#include "ProjectileEnemySimple.h"
+#include "Projectiles/ProjectileEnemySimple.h"
 
 // constructor
 ProjectileEnemySimple::ProjectileEnemySimple(cocos2d::Scene* aScene, Sprite* aHeroSpaceShip, float aSpeed, float aScale)

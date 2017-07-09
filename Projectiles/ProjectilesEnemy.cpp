@@ -1,5 +1,5 @@
 //
-//  ProjectilesHero.cpp
+//  ProjectilesEnemy.cpp
 //  Marsk
 //
 //  Created by Albastroiu Radu on 7/7/17.
@@ -8,9 +8,9 @@
 
 #pragma once
 #include <stdio.h>
-#include "Projectile.h"
-#include "Projectiles.h"
-#include "ProjectilesHero.h"
+#include "Projectiles/Projectile.h"
+#include "Projectiles/Projectiles.h"
+#include "Projectiles/ProjectilesEnemy.h"
 #include "cocos2d.h"
 #include <algorithm>
 #include <vector>
@@ -19,8 +19,8 @@
 USING_NS_CC;
 using namespace std;
 
-// add new hero projectile
-void ProjectilesHero::addProjectile(Projectile* aProjectile)
+// add new enemy projectile
+void ProjectilesEnemy::addProjectile(Projectile* aProjectile)
 {
     unique_ptr<Projectile> ptr = make_unique<Projectile>(*aProjectile);
     

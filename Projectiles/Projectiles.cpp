@@ -8,8 +8,8 @@
 
 #pragma once
 #include <stdio.h>
-#include "Projectile.h"
-#include "Projectiles.h"
+#include "Projectiles/Projectile.h"
+#include "Projectiles/Projectiles.h"
 #include "cocos2d.h"
 USING_NS_CC;
 using namespace std;

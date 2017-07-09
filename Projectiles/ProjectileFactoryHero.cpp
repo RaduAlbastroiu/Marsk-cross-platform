@@ -7,9 +7,9 @@
 //
 
 #include <stdio.h>
-#include "ProjectilesHero.h"
-#include "ProjectileHeroSimple.h"
-#include "ProjectileFactoryHero.h"
+#include "Projectiles/ProjectilesHero.h"
+#include "Projectiles/ProjectileHeroSimple.h"
+#include "Projectiles/ProjectileFactoryHero.h"
 
 ProjectileFactoryHero::ProjectileFactoryHero(ProjectilesHero* aProjectileHero):
 ProjectileContainer(aProjectileHero)
