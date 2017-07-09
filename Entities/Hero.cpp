@@ -6,7 +6,7 @@
 //
 //
 
-#include "Hero.h"
+#include "Entities/Hero.h"
 
 Hero::Hero(cocos2d::Scene* scene, float speed)
 {

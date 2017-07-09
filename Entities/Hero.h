@@ -8,9 +8,10 @@
 
 #pragma once
 #include "cocos2d.h"
+#include "Entities/Entity.h"
 USING_NS_CC;
 
-class Hero
+class Hero : public Entity
 {
 public:
     Hero(cocos2d::Scene* scene, float speed);
