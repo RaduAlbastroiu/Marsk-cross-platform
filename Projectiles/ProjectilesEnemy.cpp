@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include "Projectiles/Projectile.h"
 #include "Projectiles/Projectiles.h"
+#include "Projectiles/ProjectileFactoryEnemy.h"
 #include "Projectiles/ProjectilesEnemy.h"
 #include "cocos2d.h"
 #include <algorithm>
@@ -18,6 +19,20 @@
 #include <memory>
 USING_NS_CC;
 using namespace std;
+
+// constructor
+ProjectilesEnemy::ProjectilesEnemy()
+{
+    ProjectileFactory* newFactory = new ProjectileFactoryEnemy(this);
+    factory = newFactory;
+}
+
+// destructor
+ProjectilesEnemy::~ProjectilesEnemy()
+{
+    delete factory;
+    projectilesContainer.clear();
+}
 
 // add new enemy projectile
 void ProjectilesEnemy::addProjectile(Projectile* aProjectile)

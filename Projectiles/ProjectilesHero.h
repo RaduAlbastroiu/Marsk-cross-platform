@@ -22,7 +22,9 @@ USING_NS_CC;
 class ProjectilesHero : public Projectiles
 {
 public:
-    void addProjectile(Projectile* aProjectile);
+    ProjectilesHero();
+    ~ProjectilesHero();
+    void add(Projectile* aProjectile);
 
 };
 

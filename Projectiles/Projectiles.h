@@ -9,6 +9,8 @@
 #pragma once
 #include "Projectiles/Projectile.h"
 #include "Projectiles/ProjectileFactory.h"
+#include "Projectiles/ProjectileFactoryHero.h"
+#include "Projectiles/ProjectileFactoryEnemey.h"
 #include "cocos2d.h"
 #include <algorithm>
 #include <vector>
@@ -20,13 +22,15 @@ USING_NS_CC;
 class Projectiles
 {
 public:
-    virtual void addProjectile(unique_ptr<Projectile> aProjectile) = 0;
+    virtual void add(Projectile* aProjectile) = 0;
     virtual bool collisionWith(cocos2d::Sprite* aObj);
     virtual void update();
+    
+    void addSimpleProjectile(cocos2d::Scene* aScene, Sprite* aHeroSpaceShip, float aSpeed, float aScale);
 
     virtual ~Projectiles() = default;
     
 protected:
     vector< unique_ptr <Projectile> > projectilesContainer;
-
+    ProjectileFactory* factory;
 };

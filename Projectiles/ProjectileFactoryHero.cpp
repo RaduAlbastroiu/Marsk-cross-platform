@@ -19,5 +19,5 @@ void ProjectileFactoryHero::addProjectileSimple(cocos2d::Scene* aScene, Sprite* 
 {
     Projectile* ptr = new ProjectileHeroSimple(aScene, aHeroSpaceShip, aSpeed, aScale);
     
-    ProjectileContainer->addProjectile(ptr);
+    ProjectileContainer->add(ptr);
 }

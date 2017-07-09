@@ -22,6 +22,8 @@ USING_NS_CC;
 class ProjectilesEnemy : public Projectiles
 {
 public:
+    ProjectilesEnemy();
+    ~ProjectilesEnemy();
     void addProjectile(Projectile* aProjectile);
     
 };

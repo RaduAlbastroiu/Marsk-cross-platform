@@ -19,5 +19,5 @@ void ProjectileFactoryEnemy::addProjectileSimple(cocos2d::Scene* aScene, Sprite*
 {
     Projectile* ptr = new ProjectileEnemySimple(aScene, aHeroSpaceShip, aSpeed, aScale);
     
-    ProjectileContainer->addProjectile(ptr);
+    ProjectileContainer->add(ptr);
 }
