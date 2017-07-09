@@ -6,6 +6,7 @@
 //
 //
 
+#pragma once
 #include "Projectiles/ProjectileHeroSimple.h"
 
 // constructor
@@ -34,6 +35,7 @@ ProjectileHeroSimple::ProjectileHeroSimple(cocos2d::Scene* aScene, Sprite* aHero
 ProjectileHeroSimple::~ProjectileHeroSimple()
 {
     scene->removeChild(projectile);
+    delete this;
 }
 
 // returns true if there is a collision

@@ -6,6 +6,7 @@
 //
 //
 
+#pragma once
 #include <stdio.h>
 #include "ProjectilesEnemy.h"
 #include "ProjectileEnemySimple.h"

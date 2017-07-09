@@ -7,8 +7,9 @@
 //
 
 #pragma once
-#include "Projectile.h"
-#include "ProjectileFactory.h"
+#include "Projectiles/Projectile.h"
+#include "Projectiles/ProjectileFactory.h"
+#include "Projectiles/ProjectilesEnemy.h"
 #include "cocos2d.h"
 #include <algorithm>
 #include <vector>
@@ -19,7 +20,7 @@ using namespace std;
 class ProjectileFactoryEnemy : public ProjectileFactory
 {
 public:
-    ProjectileFactoryEnemy(ProjectilesEnemy* aProjectiles);
+    ProjectileFactoryEnemy(ProjectilesEnemy* aProjectilesHero);
     void addProjectileSimple(cocos2d::Scene* aScene, Sprite* aHeroSpaceShip, float aSpeed, float aScale);
     
 private:

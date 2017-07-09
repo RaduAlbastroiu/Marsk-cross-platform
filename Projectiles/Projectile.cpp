@@ -6,5 +6,6 @@
 //
 //
 
+#pragma once
 #include <stdio.h>
 #include "Projectiles/Projectile.h"

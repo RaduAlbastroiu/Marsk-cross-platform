@@ -35,9 +35,7 @@ ProjectilesEnemy::~ProjectilesEnemy()
 }
 
 // add new enemy projectile
-void ProjectilesEnemy::addProjectile(Projectile* aProjectile)
+void ProjectilesEnemy::add(Projectile* aProjectile)
 {
-    unique_ptr<Projectile> ptr = make_unique<Projectile>(*aProjectile);
-    
-    projectilesContainer.push_back(ptr);
+    projectilesContainer.push_back(aProjectile);
 }

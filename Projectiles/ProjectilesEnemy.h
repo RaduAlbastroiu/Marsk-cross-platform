@@ -24,7 +24,7 @@ class ProjectilesEnemy : public Projectiles
 public:
     ProjectilesEnemy();
     ~ProjectilesEnemy();
-    void addProjectile(Projectile* aProjectile);
+    void add(Projectile* aProjectile);
     
 };
 

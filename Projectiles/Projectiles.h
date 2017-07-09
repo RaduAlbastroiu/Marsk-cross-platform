@@ -9,8 +9,6 @@
 #pragma once
 #include "Projectiles/Projectile.h"
 #include "Projectiles/ProjectileFactory.h"
-#include "Projectiles/ProjectileFactoryHero.h"
-#include "Projectiles/ProjectileFactoryEnemey.h"
 #include "cocos2d.h"
 #include <algorithm>
 #include <vector>
@@ -31,6 +29,6 @@ public:
     virtual ~Projectiles() = default;
     
 protected:
-    vector< unique_ptr <Projectile> > projectilesContainer;
+    vector< Projectile* > projectilesContainer;
     ProjectileFactory* factory;
 };
