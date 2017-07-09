@@ -19,6 +19,10 @@ class Entities
 public:
     virtual void addEntity() = 0;
     
+    virtual void setTextureCenter() override;
+    virtual void setTextureLeft() override;
+    virtual void setTextureRight() override;
+    
 private:
     vector<Entity*> entities;
 };

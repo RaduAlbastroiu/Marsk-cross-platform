@@ -7,13 +7,26 @@
 //
 
 #include "Entities/Hero.h"
+#include "Movement/Movement.h"
+#include "Movement/MovementHero.h"
+#include "InputControls/InputControls.h"
 
-Hero::Hero(cocos2d::Scene* scene, float speed)
+Hero::Hero(cocos2d::Scene* scene, InputControls* controls, float speed)
 {
+    // create new movement object
+    moveWorker = new MovementHero(currentScene, this, speed);
+    // asign movement object
+    inputControl = new InputControls(currentScene);
+    
     currentScene = scene;
-    heroSpeed = speed;
     loadHeroSpaceship();
 }
+
+Hero::~Hero()
+{
+    delete moveWorker;
+}
+
 
 void Hero::loadHeroSpaceship()
 {
@@ -22,21 +35,4 @@ void Hero::loadHeroSpaceship()
     heroSpaceShip->setPosition(currentScene->getBoundingBox().getMidX(), currentScene->getBoundingBox().size.height / 7);
     heroSpaceShip->setScale(0.3);
     currentScene->addChild(heroSpaceShip);
-}
-
-void Hero::MoveLeft(float delta)
-{
-    heroSpaceShip->setTexture("res/elonLeft.png");
-    heroSpaceShip->runAction(MoveBy::create(delta, Vec2(-heroSpeed, 0)));
-}
-
-void Hero::MoveRight(float delta)
-{
-    heroSpaceShip->setTexture("res/elonRight.png");
-    heroSpaceShip->runAction(MoveBy::create(delta, Vec2(heroSpeed, 0)));
-}
-
-void Hero::StopMoving()
-{
-    heroSpaceShip->setTexture("res/elonCenter.png");
 }
