@@ -18,6 +18,9 @@ class Move
 {
 public:
     Move(bool aDirection, float aDelta);
+    bool MoveLeft();
+    bool MoveRight();
+    float getDelta();
 private:
     bool direction;
     float delta;

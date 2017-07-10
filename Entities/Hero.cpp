@@ -25,6 +25,7 @@ Hero::Hero(cocos2d::Scene* scene, InputControls* controls, float speed)
 Hero::~Hero()
 {
     delete moveWorker;
+    delete inputControl;
 }
 
 

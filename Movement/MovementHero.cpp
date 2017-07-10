@@ -21,17 +21,15 @@ speed(aSpeed), entity(aEntity), scene(aScene)
 
 void Movement::executeMove(Move* aMove)
 {
-    if(aMove == null)
+    if(aMove)
     {
-        StopMoving();
+        if(aMove->MoveLeft())
+            MoveLeft(aMove->getDelta());
+        if(aMove->MoveRight())
+            MoveRight(aMove->getDelta());
     }
     else
-    {
-        if(aMove->direction)
-            MoveRight(aMove->delta);
-        else
-            MoveLeft(aMove->delta);
-    }
+        StopMoving();
 }
 
 void Movement::MoveLeft(float delta)

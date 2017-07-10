@@ -13,3 +13,22 @@
 Move::Move(bool aDirection, float aDelta):
 direction(aDirection), delta(aDelta)
 {}
+
+bool Move::MoveLeft()
+{
+    if( direction )
+        return false;
+    return true;
+}
+
+bool Move::MoveRight()
+{
+    if( direction )
+        return true;
+    return false;
+}
+
+float Move::getDelta()
+{
+    return delta;
+}
