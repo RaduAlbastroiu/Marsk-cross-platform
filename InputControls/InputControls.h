@@ -24,6 +24,8 @@ public:
     
     void add(InputControl* ptr);
     
+    // don't forget to gather the listeners and pass them to the builder
+    
 private:
     vector<InputControl*> inputControlContainer;
 };

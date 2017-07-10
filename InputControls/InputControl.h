@@ -24,6 +24,10 @@ public:
     // pure virtual method
     virtual void addInputVisualButtons() = 0;
     
+    virtual cocos2d::EventListener* getListener();
+    
+    virtual void update(float delta) = 0;
+    
 protected:
     
     Entity* currentEntity;

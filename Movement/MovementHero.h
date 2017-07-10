@@ -20,12 +20,12 @@ class MovementHero : public Movement
 public:
     Movement(cocos2d::Scene* aScene, cocos2d::Sprite* aEntity, float aSpeed);
     
-    virtual void executeMove(Move* aMove) override;
+    void executeMove(Move* aMove) override;
     
 private:
     
-    virtual void MoveLeft(float delta) override;
-    virtual void MoveRight(float delta) override;
-    virtual void StopMoving() override;
+    void MoveLeft(float delta) override;
+    void MoveRight(float delta) override;
+    void StopMoving() override;
     
 };

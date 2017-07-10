@@ -20,6 +20,8 @@
 // constructor
 InputControlMovementArrows::InputControlMovementArrows(cocos2d::Scene* aScene, Entity* aEntity) : InputControlMovement(aScene, aEntity)
 {
+    leftArrowPressed = false;
+    rightArrowPressed = false;
     leftArrowPositionX = 0.075;
     leftArrowPositionY = 0.2;
     rightArrowPositionX = 0.925;
@@ -28,11 +30,55 @@ InputControlMovementArrows::InputControlMovementArrows(cocos2d::Scene* aScene, E
     addInputVisualButtons();
 }
 
+// destructor
+InputControlMovementArrows::~InputControlMovementArrows()
+{
+    delete moveObject;
+}
+
 // add movement arrows
 void InputControlMovementArrows::addInputVisualButtons()
 {
     addLeftMovementArrow();
     addRightMovementArrow();
+    
+    setTouchListener();
+}
+
+cocos2d::EventListener* InputControlMovementArrows::getListener()
+{
+    return dynamic_cast<cocos2d::EventListener*>(touchListener);
+}
+
+// add touch listener
+void InputControlMovementArrows::setTouchListener()
+{
+    touchListener = EventListenerTouchAllAtOnce::create();
+    
+    touchListener->onTouchesBegan = CC_CALLBACK_2(InputControlMovementArrows::touchBegan, this);
+    touchListener->onTouchesEnded = CC_CALLBACK_2(InputControlMovementArrows::touchEnded, this);
+    
+}
+
+// touch began
+void InputControlMovementArrows::touchBegan(const vector<cocos2d::Touch*> touch, cocos2d::Event* event)
+{
+    for(auto oneTouch : touch)
+    {
+        if(leftArrow->getBoundingBox().containsPoint(oneTouch->getLocation()))
+        {
+            loadMovementArrowLeftSelected();
+            
+            leftArrowPressed = true;
+        }
+        
+        if(rightArrow->getBoundingBox().containsPoint(oneTouch->getLocation()))
+        {
+            loadMovementArrowRightSelected();
+
+            rightArrowPressed = true;
+        }
+    }
 }
 
 // add left movement arrow
