@@ -23,12 +23,5 @@ class InputControlMovement : public InputControl
 public:
     
     InputControlMovement(cocos2d::Scene* aScene, Entity* aEntity);
-    
-    
-private:
-    
-    Entity* currentEntity;
-    Movement* movementObject;
-    cocos2d::Scene* currentScene;
-    
+
 };

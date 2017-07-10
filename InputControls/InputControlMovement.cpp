@@ -16,8 +16,9 @@
 #include "Movement/Move.h"
 #include "Entities/Entity.h"
 
-InputControlMovement::InputControlMovement(cocos2d::Scene* aScene, Entity* aEntity):
-currentEntity(aEntity), currentScene(aScene)
+InputControlMovement::InputControlMovement(cocos2d::Scene* aScene, Entity* aEntity)
 {
-    movementObject = static_cast<Movement*>(aEntity->getRelatedObjectMovement());
+    currentScene = aScene;
+    currentEntity = aEntity;
+    workObject = aEntity->getRelatedObjectMovement();
 }

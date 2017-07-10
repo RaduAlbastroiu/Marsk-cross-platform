@@ -14,8 +14,20 @@
 USING_NS_CC;
 using namespace std;
 
+// abstract class
 class InputControl
 {
 public:
-    virtual ~InputControl() = default;
+    // destructor
+    virtual ~InputControl();
+    
+    // pure virtual method
+    virtual void addInputVisualButtons() = 0;
+    
+protected:
+    
+    Entity* currentEntity;
+    EntityRelatedObject* workObject;
+    cocos2d::Scene* currentScene;
+    
 };
