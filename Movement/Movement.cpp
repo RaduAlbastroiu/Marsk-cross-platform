@@ -10,9 +10,8 @@
 #include <stdio.h>
 #include "Movement/Movement.h"
 
-USING_NS_CC;
-using namespace std;
 
+// constructor
 Movement::Movement(cocos2d::Scene* aScene, Entity* aEntity, float aSpeed):
 speed(aSpeed), entity(aEntity), scene(aScene)
 {}

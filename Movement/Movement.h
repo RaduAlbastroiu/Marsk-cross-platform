@@ -10,14 +10,16 @@
 #include "cocos2d.h"
 #include "Entities/Entities.h"
 #include "Entities/Entity.h"
+#include "Entities/EntityRelatedObject.h"
 #include "Movement/Move.h"
 
 USING_NS_CC;
 using namespace std;
 
-class Movement
+class Movement : public EntityRelatedObject
 {
 public:
+    // constructor
     Movement(cocos2d::Scene* aScene, Entity* aEntity, float aSpeed);
     
     virtual void executeMove(Move* aMove) = 0;

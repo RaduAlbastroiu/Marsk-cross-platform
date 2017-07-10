@@ -9,14 +9,15 @@
 #include "Entities/Hero.h"
 #include "Movement/Movement.h"
 #include "Movement/MovementHero.h"
-#include "InputControls/InputControls.h"
+#include "InputControls/InputControl.h"
+#include "InputControls/InputControlMovement.h"
 
-Hero::Hero(cocos2d::Scene* scene, InputControls* controls, float speed)
+Hero::Hero(cocos2d::Scene* scene, InputControl* control, float speed)
 {
     // create new movement object
     moveWorker = new MovementHero(currentScene, this, speed);
     // asign movement object
-    inputControl = new InputControls(currentScene);
+    control->
     
     currentScene = scene;
     loadHeroSpaceship();
@@ -28,6 +29,20 @@ Hero::~Hero()
     delete inputControl;
 }
 
+void Hero::setTextureLeft()
+{
+    heroSpaceShip->setTexture("res/elonLeft.png");
+}
+
+void Hero::setTextureRight()
+{
+    heroSpaceShip->setTexture("res/elonRIght.png");
+}
+
+void Hero::setTextureCenter()
+{
+    heroSpaceShip->setTexture("res/elonCenter.png");
+}
 
 void Hero::loadHeroSpaceship()
 {
@@ -37,3 +52,4 @@ void Hero::loadHeroSpaceship()
     heroSpaceShip->setScale(0.3);
     currentScene->addChild(heroSpaceShip);
 }
+

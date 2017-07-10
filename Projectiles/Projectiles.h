@@ -9,6 +9,7 @@
 #pragma once
 #include "Projectiles/Projectile.h"
 #include "Projectiles/ProjectileFactory.h"
+#include "Entities/EntityRelatedObject.h"
 #include "cocos2d.h"
 #include <algorithm>
 #include <vector>
@@ -17,7 +18,7 @@ using namespace std;
 USING_NS_CC;
 
 // abstract class
-class Projectiles
+class Projectiles : public EntityRelatedObject
 {
 public:
     virtual void add(Projectile* aProjectile) = 0;

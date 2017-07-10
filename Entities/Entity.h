@@ -19,11 +19,16 @@ class Entity
 {
 public:
     
-    virtual void addEntity() = 0;
+    virtual EntityRelatedObject* getRelatedObjectMovement();
+    virtual EntityRelatedObject* getRelatedObjectProjectiles();
+    virtual void setTextureCenter() = 0;
+    virtual void setTextureLeft() = 0;
+    virtual void setTextureRight() = 0;
 
 protected:
 
     InputControls* inputControl;
-    Movement* moveWorker;
+    EntityRelatedObject* moveWorker;
+    //projectiles needed
 
 };

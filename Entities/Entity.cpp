@@ -10,3 +10,9 @@
 #include <stdio.h>
 #include "Entities/Entity.h"
 #include "Entities/Entities.h"
+
+
+EntityRelatedObject* Entity::getRelatedObjectMovement()
+{
+    return moveWorker;
+}
