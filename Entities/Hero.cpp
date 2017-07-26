@@ -17,7 +17,7 @@ Hero::Hero(cocos2d::Scene* scene, InputControl* control, float speed)
     // create new movement object
     moveWorker = new MovementHero(currentScene, this, speed);
     // asign movement object
-    control->
+    control->// ????
     
     currentScene = scene;
     loadHeroSpaceship();

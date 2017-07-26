@@ -29,6 +29,6 @@ protected:
 
     InputControls* inputControl;
     EntityRelatedObject* moveWorker;
-    //projectiles needed
+    //projectiles needed another entity i guess
 
 };

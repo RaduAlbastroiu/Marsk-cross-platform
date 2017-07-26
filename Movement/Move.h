@@ -18,9 +18,13 @@ class Move
 {
 public:
     Move(bool aDirection, float aDelta);
+    
+    // this looks like a mess
+    // enum class needed (left right for now, up down will be added later on)
     bool MoveLeft();
     bool MoveRight();
     float getDelta();
+    
 private:
     bool direction;
     float delta;
