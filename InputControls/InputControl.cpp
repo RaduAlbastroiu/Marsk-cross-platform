@@ -12,6 +12,12 @@
 #include "InputControls/InputControls.h"
 #include "Entities/Entity.h"
 
+// constructor
+InputControl::InputControl(cocos2d::Scene* aScene, Entity* aEntity)
+:currentScene(aScene), currentEntity(aEntity)
+{
+}
+
 // destructor
 InputControl::~InputControl()
 {

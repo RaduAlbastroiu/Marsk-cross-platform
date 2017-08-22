@@ -18,11 +18,14 @@ using namespace std;
 class InputControl
 {
 public:
+    // constructor
+    InputControl(cocos2d::Scene* aScene, Entity* aEntity);
+    
     // destructor
     virtual ~InputControl();
     
     // pure virtual method
-    virtual void addInputVisualButtons() = 0;
+    virtual void addInputVisualButtons();
     
     virtual cocos2d::EventListener* getListener();
     

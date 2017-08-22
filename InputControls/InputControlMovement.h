@@ -21,7 +21,6 @@ class InputControlMovement : public InputControl
 {
     
 public:
+    virtual ~InputControlMovement() = default;
     
-    InputControlMovement(cocos2d::Scene* aScene, Entity* aEntity);
-
 };

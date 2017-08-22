@@ -16,8 +16,3 @@
 #include "Movement/Move.h"
 #include "Entities/Entity.h"
 
-InputControlMovement::InputControlMovement(cocos2d::Scene* aScene, Entity* aEntity)
-{
-    currentScene = aScene;
-    currentEntity = aEntity;
-}
