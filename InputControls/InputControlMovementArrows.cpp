@@ -149,6 +149,9 @@ void InputControlMovementArrows::update(float delta)
     if (rightArrowPressed && !leftArrowPressed)
         currentEntity->moveRight(delta);
     
+    if (!leftArrowPressed && !rightArrowPressed)
+        currentEntity->moveStop();
+    
 }
 
 

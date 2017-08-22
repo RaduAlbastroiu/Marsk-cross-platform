@@ -7,26 +7,39 @@
 //
 
 #include "Entities/Hero.h"
-#include "Movement/Movement.h"
-#include "Movement/MovementHero.h"
 #include "InputControls/InputControl.h"
 #include "InputControls/InputControlMovement.h"
+#include "Projectiles/ProjectilesHero.h"
 
-Hero::Hero(cocos2d::Scene* scene, InputControl* control, float speed)
+Hero::Hero(cocos2d::Scene* scene, float speed)
 {
-    // create new movement object
-    moveWorker = new MovementHero(currentScene, this, speed);
-    // asign movement object
-    control->// ????
+
+    // asign projectile object
+    projectileEntity = dynamic_cast<Projectiles*>(new ProjectilesHero());
     
     currentScene = scene;
+    
+    // random number for speed
+    speedHeroSpaceShip = 5;
+    
     loadHeroSpaceship();
 }
 
-Hero::~Hero()
+void Hero::moveLeft(float delta)
 {
-    delete moveWorker;
-    delete inputControl;
+    setTextureLeft();
+    heroSpaceShip->runAction(MoveBy::create(delta, Vec2(-speedHeroSpaceShip, 0)));
+}
+
+void Hero::moveRight(float delta)
+{
+    setTextureRight();
+    heroSpaceShip->runAction(MoveBy::create(delta, Vec2(+speedHeroSpaceShip, 0)));
+}
+
+void Hero::moveStop()
+{
+    setTextureCenter();
 }
 
 void Hero::setTextureLeft()

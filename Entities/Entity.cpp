@@ -12,7 +12,3 @@
 #include "Entities/Entities.h"
 
 
-EntityRelatedObject* Entity::getRelatedObjectMovement()
-{
-    return moveWorker;
-}
