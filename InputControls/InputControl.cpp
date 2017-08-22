@@ -16,6 +16,5 @@
 InputControl::~InputControl()
 {
     delete currentEntity;
-    delete workObject;
     delete currentScene;
 }

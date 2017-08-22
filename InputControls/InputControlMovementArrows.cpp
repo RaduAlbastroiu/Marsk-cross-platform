@@ -30,12 +30,6 @@ InputControlMovementArrows::InputControlMovementArrows(cocos2d::Scene* aScene, E
     addInputVisualButtons();
 }
 
-// destructor
-InputControlMovementArrows::~InputControlMovementArrows()
-{
-    delete moveObject;
-}
-
 // add movement arrows
 void InputControlMovementArrows::addInputVisualButtons()
 {
@@ -81,6 +75,27 @@ void InputControlMovementArrows::touchBegan(const vector<cocos2d::Touch*> touch,
     }
 }
 
+// touch ended
+void InputControlMovementArrows::touchEnded(const vector<cocos2d::Touch*> touch, cocos2d::Event* event)
+{
+    for(auto oneTouch : touch)
+    {
+        if(leftArrow->getBoundingBox().containsPoint(oneTouch->getLocation()))
+        {
+            loadMovementArrowLeftUnselected();
+            
+            leftArrowPressed = false;
+        }
+        
+        if(rightArrow->getBoundingBox().containsPoint(oneTouch->getLocation()))
+        {
+            loadMovementArrowRightUnselected();
+            
+            rightArrowPressed = false;
+        }
+    }
+}
+
 // add left movement arrow
 void InputControlMovementArrows::addLeftMovementArrow()
 {
@@ -102,3 +117,39 @@ void InputControlMovementArrows::addRightMovementArrow()
     
     currentScene->addChild(rightArrow, 1);
 }
+
+void InputControlMovementArrows::loadMovementArrowLeftSelected()
+{
+    leftArrow->setTexture("res/leftArrowPressed.png");
+}
+
+void InputControlMovementArrows::loadMovementArrowRightSelected()
+{
+    leftArrow->setTexture("res/rightArrowPressed.png");
+}
+
+void InputControlMovementArrows::loadMovementArrowLeftUnselected()
+{
+    leftArrow->setTexture("res/leftArrow.png");
+}
+
+void InputControlMovementArrows::loadMovementArrowRightUnselected()
+{
+    leftArrow->setTexture("res/rightArrowPressed.png");
+}
+
+// update
+void InputControlMovementArrows::update(float delta)
+{
+    
+    if (leftArrowPressed && !rightArrowPressed)
+        currentEntity->moveLeft(delta);
+    
+    
+    if (rightArrowPressed && !leftArrowPressed)
+        currentEntity->moveRight(delta);
+    
+}
+
+
+

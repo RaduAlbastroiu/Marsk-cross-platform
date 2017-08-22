@@ -31,7 +31,6 @@ public:
 protected:
     
     Entity* currentEntity;
-    EntityRelatedObject* workObject;
     cocos2d::Scene* currentScene;
     
 };

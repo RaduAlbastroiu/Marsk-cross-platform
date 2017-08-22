@@ -20,5 +20,4 @@ InputControlMovement::InputControlMovement(cocos2d::Scene* aScene, Entity* aEnti
 {
     currentScene = aScene;
     currentEntity = aEntity;
-    workObject = aEntity->getRelatedObjectMovement();
 }

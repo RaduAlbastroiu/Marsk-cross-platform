@@ -27,36 +27,30 @@ public:
     InputControlMovementArrows(cocos2d::Scene* aScene, Entity* aEntity);
     
     // destructor
-    ~InputControlMovementArrows();
+    ~InputControlMovementArrows() = default;
     
     void addInputVisualButtons() override;
     
     cocos2d::EventListener* getListener() override;
     
-    // not implemented
-    void update(float delta) override;
+    virtual void update(float delta) override;
     
 private:
     
     // some redesign for arrows may be needed
     
     void setTouchListener();
-    void touchBegan(const vector<cocos2d::Touch*> touch, cocos2d::Event* event);
     
-    // not implemented
+    void touchBegan(const vector<cocos2d::Touch*> touch, cocos2d::Event* event);
     void touchEnded(const vector<cocos2d::Touch*> touch, cocos2d::Event* event);
     
     void addLeftMovementArrow();
     void addRightMovementArrow();
     
-    // not implemented
     void loadMovementArrowLeftSelected();
-    // not implemented
     void loadMovementArrowRightSelected();
-    
-    // not implemented
-    Move* moveLeft();
-    Move* moveRight();
+    void loadMovementArrowLeftUnselected();
+    void loadMovementArrowRightUnselected();
     
     float leftArrowPositionX;
     float leftArrowPositionY;
@@ -68,10 +62,9 @@ private:
     
     cocos2d::Touch* leftArrowTouch;
     cocos2d::Touch* rightArrowTouch;
+    
     bool leftArrowPressed;
     bool rightArrowPressed;
-    
-    Move* moveObject;
     
     cocos2d::EventListenerTouchAllAtOnce* touchListener;
     
