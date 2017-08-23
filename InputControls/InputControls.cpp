@@ -7,10 +7,10 @@
 //
 
 #include <stdio.h>
-#include "cocos2d.h"
-#include "InputControls/InputControls.h"
 #include <algorithm>
 #include <vector>
+#include "cocos2d.h"
+#include "InputControls/InputControls.h"
 
 
 // destructor
@@ -23,4 +23,14 @@ InputControls::~InputControls()
 void InputControls::add(InputControl* ptr)
 {
     inputControlContainer.push_back(ptr);
+}
+
+// update
+void InputControls::update(float delta)
+{
+    // update all input controls
+    for(auto &someInputControl : inputControlContainer)
+    {
+        someInputControl->update(delta);
+    }
 }

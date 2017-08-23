@@ -25,6 +25,6 @@ public:
     
     
 private:
-    vector< Entity* > entitiesContainer;
+    vector<Entity*> entitiesContainer;
     
 };

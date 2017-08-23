@@ -7,15 +7,16 @@
 //
 
 #pragma once
-#include "cocos2d.h"
-#include "InputControls/InputControl.h"
-#include "InputControls/BuilderInputControls.h"
 #include <algorithm>
 #include <vector>
+#include "cocos2d.h"
+#include "InputControls/InputControl.h"
+#include "InputControls/ManagerInputControls.h"
 
 USING_NS_CC;
 using namespace std;
 
+// container class for input controls
 class InputControls
 {
 public:
@@ -24,8 +25,12 @@ public:
     
     void add(InputControl* ptr);
     
-    // don't forget to gather the listeners and pass them to the builder
+    void update(float delta);
+    
+    // there should be another class only for listeners
     
 private:
+    
+    // TouchListener* touchListener; something like this
     vector<InputControl*> inputControlContainer;
 };
