@@ -11,7 +11,6 @@
 #include "Projectiles/Projectile.h"
 #include "Projectiles/Projectiles.h"
 #include "Projectiles/ProjectilesHero.h"
-#include "Projectiles/ProjectileFactoryHero.h"
 #include "cocos2d.h"
 #include <algorithm>
 #include <vector>
@@ -20,23 +19,10 @@
 USING_NS_CC;
 using namespace std;
 
-// constructor
-ProjectilesHero::ProjectilesHero()
+// add new hero projectile simple
+void ProjectilesHero::addSimpleProjectile(cocos2d::Scene* scene, Sprite* heroSpaceShip, float speed, float scale)
 {
-    ProjectileFactory* newFactory = new ProjectileFactoryHero(this);
+    Projectile* ptr = new ProjectileHeroSimple(scene, heroSpaceShip, speed, scale);
     
-    factory = newFactory;
-}
-
-// destructor
-ProjectilesHero::~ProjectilesHero()
-{
-    delete factory;
-    projectilesContainer.clear();
-}
-
-// add new hero projectile
-void ProjectilesHero::add(Projectile* aProjectile)
-{
-    projectilesContainer.push_back(aProjectile);
+    projectilesContainer.push_back(ptr);
 }

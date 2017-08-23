@@ -9,7 +9,6 @@
 #pragma once
 #include "Projectiles/Projectile.h"
 #include "Projectiles/Projectiles.h"
-#include "Projectiles/ProjectileFactory.h"
 #include "cocos2d.h"
 #include <algorithm>
 #include <vector>
@@ -22,9 +21,9 @@ USING_NS_CC;
 class ProjectilesEnemy : public Projectiles
 {
 public:
-    ProjectilesEnemy();
-    ~ProjectilesEnemy();
-    void add(Projectile* aProjectile);
+
+    virtual ~ProjectilesEnemy() = default;
     
+    void addSimpleProjectile(cocos2d::Scene* scene, Sprite* enemySpaceShip, float speed, float scale) override;
 };
 

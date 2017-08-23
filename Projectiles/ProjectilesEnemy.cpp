@@ -10,8 +10,8 @@
 #include <stdio.h>
 #include "Projectiles/Projectile.h"
 #include "Projectiles/Projectiles.h"
-#include "Projectiles/ProjectileFactoryEnemy.h"
 #include "Projectiles/ProjectilesEnemy.h"
+#include "Projectiles/ProjectileEnemySimple.h"
 #include "cocos2d.h"
 #include <algorithm>
 #include <vector>
@@ -20,22 +20,10 @@
 USING_NS_CC;
 using namespace std;
 
-// constructor
-ProjectilesEnemy::ProjectilesEnemy()
+// add new enemy projectile simple
+void ProjectilesEnemy::addSimpleProjectile(cocos2d::Scene* scene, Sprite* enemySpaceShip, float speed, float scale)
 {
-    ProjectileFactory* newFactory = new ProjectileFactoryEnemy(this);
-    factory = newFactory;
-}
-
-// destructor
-ProjectilesEnemy::~ProjectilesEnemy()
-{
-    delete factory;
-    projectilesContainer.clear();
-}
-
-// add new enemy projectile
-void ProjectilesEnemy::add(Projectile* aProjectile)
-{
-    projectilesContainer.push_back(aProjectile);
+    Projectile* ptr = new ProjectileEnemySimple(scene, enemySpaceShip, speed, scale);
+    
+    projectilesContainer.push_back(ptr);
 }

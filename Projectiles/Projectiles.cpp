@@ -49,9 +49,3 @@ void Projectiles::update()
         }
     }
 }
-
-// call factory for a new object
-void Projectiles::addSimpleProjectile(cocos2d::Scene* aScene, Sprite* aHeroSpaceShip, float aSpeed, float aScale)
-{
-    factory->addProjectileSimple(aScene, aHeroSpaceShip, aSpeed, aScale);
-}
