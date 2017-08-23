@@ -20,9 +20,9 @@ USING_NS_CC;
 using namespace std;
 
 // add new hero projectile simple
-void ProjectilesHero::addSimpleProjectile(cocos2d::Scene* scene, Sprite* heroSpaceShip, float speed, float scale)
+void ProjectilesHero::addSimpleProjectile(cocos2d::Scene* scene, Sprite* heroSpaceShip, float speed)
 {
-    Projectile* ptr = new ProjectileHeroSimple(scene, heroSpaceShip, speed, scale);
+    Projectile* ptr = new ProjectileHeroSimple(scene, heroSpaceShip, speed);
     
     projectilesContainer.push_back(ptr);
 }

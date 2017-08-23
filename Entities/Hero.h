@@ -19,6 +19,8 @@ public:
     Hero(cocos2d::Scene* scene, float speed);
     ~Hero() = default;
     
+    void fireSimpleProjectile() override;
+    
     void moveLeft(float delta) override;
     void moveRight(float delta) override;
     void moveStop() override;
@@ -32,6 +34,7 @@ private:
     void loadHeroSpaceship();
     
     float speedHeroSpaceShip;
+    float speedHeroProjectiles;
     
     cocos2d::Sprite* heroSpaceShip;
     cocos2d::Scene* currentScene;

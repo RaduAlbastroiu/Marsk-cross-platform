@@ -12,7 +12,5 @@
 #include "InputControls/InputControlMovement.h"
 #include "InputControls/InputControls.h"
 #include "InputControls/InputControl.h"
-#include "Movement/Movement.h"
-#include "Movement/Move.h"
 #include "Entities/Entity.h"
 

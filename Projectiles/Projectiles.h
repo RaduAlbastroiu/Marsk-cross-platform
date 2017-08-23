@@ -25,7 +25,7 @@ public:
     
     virtual bool collisionWith(cocos2d::Sprite* aObj);
     
-    virtual void addSimpleProjectile(cocos2d::Scene* aScene, Sprite* aEntity, float aSpeed, float aScale) = 0;
+    virtual void addSimpleProjectile(cocos2d::Scene* aScene, Sprite* aEntity, float aSpeed) = 0;
     
 protected:
     vector< Projectile* > projectilesContainer;

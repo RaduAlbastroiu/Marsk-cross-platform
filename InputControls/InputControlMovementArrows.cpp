@@ -13,13 +13,14 @@
 #include "InputControls/InputControlMovementArrows.h"
 #include "InputControls/InputControls.h"
 #include "InputControls/InputControl.h"
-#include "Movement/Movement.h"
-#include "Movement/Move.h"
 #include "Entities/Entity.h"
 
 // constructor
-InputControlMovementArrows::InputControlMovementArrows(cocos2d::Scene* aScene, Entity* aEntity) : InputControlMovement(aScene, aEntity)
+InputControlMovementArrows::InputControlMovementArrows(cocos2d::Scene* aScene, Entity* aEntity)
 {
+    currentScene = aScene;
+    currentEntity = aEntity;
+    
     leftArrowPressed = false;
     rightArrowPressed = false;
     leftArrowPositionX = 0.075;

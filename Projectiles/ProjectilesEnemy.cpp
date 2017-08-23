@@ -21,9 +21,9 @@ USING_NS_CC;
 using namespace std;
 
 // add new enemy projectile simple
-void ProjectilesEnemy::addSimpleProjectile(cocos2d::Scene* scene, Sprite* enemySpaceShip, float speed, float scale)
+void ProjectilesEnemy::addSimpleProjectile(cocos2d::Scene* scene, Sprite* enemySpaceShip, float speed)
 {
-    Projectile* ptr = new ProjectileEnemySimple(scene, enemySpaceShip, speed, scale);
+    Projectile* ptr = new ProjectileEnemySimple(scene, enemySpaceShip, speed);
     
     projectilesContainer.push_back(ptr);
 }

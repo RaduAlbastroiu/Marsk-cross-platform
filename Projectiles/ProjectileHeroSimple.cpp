@@ -10,17 +10,18 @@
 #include "Projectiles/ProjectileHeroSimple.h"
 
 // constructor
-ProjectileHeroSimple::ProjectileHeroSimple(cocos2d::Scene* aScene, Sprite* aHeroSpaceShip, float aSpeed, float aScale)
+ProjectileHeroSimple::ProjectileHeroSimple(cocos2d::Scene* aScene, Sprite* aHeroSpaceShip, float aSpeed)
 {
     // set the scene for this proiectile
     scene = aScene;
     // set speed
     speed = aSpeed;
+    scale = 0.2;
     
     projectile = Sprite::create("res/laserGreen.png");
     
     
-    projectile->setScale(aScale);
+    projectile->setScale(scale);
     projectile->setAnchorPoint(Vec2(0.5, 0.5));
     projectile->setPosition(Vec2(aHeroSpaceShip->getBoundingBox().getMidX(),
                              aHeroSpaceShip->getBoundingBox().getMaxY() + projectile->getBoundingBox().size.height/2));

@@ -21,8 +21,14 @@ Hero::Hero(cocos2d::Scene* scene, float speed)
     
     // random number for speed
     speedHeroSpaceShip = 5;
+    speedHeroProjectiles = 5;
     
     loadHeroSpaceship();
+}
+
+void Hero::fireSimpleProjectile()
+{
+    projectileEntity->addSimpleProjectile(currentScene, heroSpaceShip, speedHeroProjectiles);
 }
 
 void Hero::moveLeft(float delta)

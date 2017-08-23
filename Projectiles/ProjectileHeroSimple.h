@@ -15,7 +15,7 @@ class ProjectileHeroSimple : public Projectile
 {
 public:
     // constructor
-    ProjectileHeroSimple(cocos2d::Scene* scene, Sprite* heroSpaceShip, float speed, float scale);
+    ProjectileHeroSimple(cocos2d::Scene* scene, Sprite* heroSpaceShip, float speed);
     // destructor
     ~ProjectileHeroSimple();
     
@@ -27,6 +27,7 @@ public:
     bool isStillInViewArea() override;
     
 private:
+    float scale;
     float speed;
     cocos2d::Scene* scene;
     cocos2d::Sprite* projectile;

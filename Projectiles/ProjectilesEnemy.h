@@ -24,6 +24,6 @@ public:
 
     virtual ~ProjectilesEnemy() = default;
     
-    void addSimpleProjectile(cocos2d::Scene* scene, Sprite* enemySpaceShip, float speed, float scale) override;
+    void addSimpleProjectile(cocos2d::Scene* scene, Sprite* enemySpaceShip, float speed) override;
 };
 

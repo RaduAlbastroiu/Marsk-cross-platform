@@ -7,18 +7,24 @@
 //
 
 #pragma once
-#include "cocos2d.h"
-#include "Entities/Entity.h"
 #include <algorithm>
 #include <vector>
+#include "cocos2d.h"
+#include "Entities/Entity.h"
+
 using namespace std;
 USING_NS_CC;
 
 class Entities
 {
 public:
-    virtual void addEntity() = 0;
+    
+    void update(float delta);
+    
+    void addEntity(Entity* aEntity);
+    
     
 private:
-    vector<Entity*> entities;
+    vector< Entity* > entitiesContainer;
+    
 };

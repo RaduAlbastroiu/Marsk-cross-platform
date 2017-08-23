@@ -19,8 +19,9 @@ class Entity
 {
 public:
     
-    // not implemented
-    virtual EntityRelatedObject* getRelatedObjectProjectiles();
+    void update(float delta);
+    
+    virtual void fireSimpleProjectile() = 0;
     
     virtual void moveLeft(float delta) = 0;
     virtual void moveRight(float delta) = 0;
