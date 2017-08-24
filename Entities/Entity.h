@@ -15,6 +15,7 @@
 using namespace std;
 USING_NS_CC;
 
+// abstract class
 class Entity
 {
 public:

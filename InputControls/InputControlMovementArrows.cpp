@@ -29,6 +29,7 @@ InputControlMovementArrows::InputControlMovementArrows(cocos2d::Scene* aScene, E
     rightArrowPositionY = 0.2;
 
     addInputVisualButtons();
+    setTouchListener();
 }
 
 // add movement arrows
