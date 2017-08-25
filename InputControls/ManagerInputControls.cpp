@@ -10,11 +10,9 @@
 #include <stdio.h>
 #include "cocos2d.h"
 #include "InputControls/ManagerInputControls.h"
-#include "InputControls/InputControls.h"
 #include "InputControls/InputControl.h"
 #include "InputControls/InputControlMovementArrows.h"
 #include "InputControls/InputControlProjectiles.h"
-#include "Entities/Entity.h"
 
 // constructor
 ManagerInputControls::ManagerInputControls(cocos2d::Scene* aScene, Entity* aEntity)
@@ -29,6 +27,13 @@ ManagerInputControls::ManagerInputControls(cocos2d::Scene* aScene, Entity* aEnti
     // add input Controls
     inputControls->add(move);
     inputControls->add(projectile);
+    
+    // create input listener
+    inputListener = new InputListener(static_cast<InputControlMovementArrows*>(move), static_cast<InputControlProjectiles*>(projectile));
+    
+    // add input listener to the scene
+    aScene->addChild(inputListener);
+    
 }
 
 // destructor

@@ -8,7 +8,7 @@
 
 #pragma once
 #include "InputControls/InputControls.h"
-#include "InputControls/InputControl.h"
+#include "InputControls/InputListener.h"
 #include "cocos2d.h"
 #include "Entities/Entity.h"
 
@@ -25,8 +25,9 @@ public:
     void updateInputControls(float delta);
     
 private:
-    // add listener class !!!
+    
+    InputListener* inputListener;
+    
     InputControls* inputControls;
     
 };
- 

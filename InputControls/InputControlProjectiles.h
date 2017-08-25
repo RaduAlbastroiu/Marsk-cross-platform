@@ -28,17 +28,11 @@ public:
     
     virtual void update(float delta) override;
     
+    void touchBegan(const cocos2d::Touch* touch, cocos2d::Event* event);
+    void touchEnded(const cocos2d::Touch* touch, cocos2d::Event* event);
+    
 private:
     
-    void setTouchListener();
-    
-    void touchBegan(const vector<cocos2d::Touch*> touch, cocos2d::Event* event);
-    void touchEnded(const vector<cocos2d::Touch*> touch, cocos2d::Event* event);
-    
-    
-    cocos2d::EventListenerTouchAllAtOnce* touchListener;
-    
-    int nrTouches;
     bool fireProjectile;
     
 };

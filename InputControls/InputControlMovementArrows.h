@@ -33,14 +33,17 @@ public:
     
     virtual void update(float delta) override;
     
+    bool touchBegan(const cocos2d::Touch* touch, cocos2d::Event* event);
+    void touchMoved(const cocos2d::Touch* touch, cocos2d::Event* event);
+    bool touchEnded(const cocos2d::Touch* touch, cocos2d::Event* event);
+    
 private:
     
     // some redesign for arrows may be needed
     
     void setTouchListener();
     
-    void touchBegan(const vector<cocos2d::Touch*> touch, cocos2d::Event* event);
-    void touchEnded(const vector<cocos2d::Touch*> touch, cocos2d::Event* event);
+
     
     void addLeftMovementArrow();
     void addRightMovementArrow();
@@ -63,8 +66,6 @@ private:
     
     bool leftArrowPressed;
     bool rightArrowPressed;
-    
-    cocos2d::EventListenerTouchAllAtOnce* touchListener;
     
 };
 

@@ -13,7 +13,7 @@
 using namespace std;
 
 InputListener::InputListener(InputControlMovementArrows* aArrow, InputControlProjectiles* aProjecctile)
-:Arrow(Arrow), Projecctile(aProjecctile)
+:Arrow(Arrow), Projectile(aProjecctile)
 {
     // create touch listener
     touchListener = EventListenerTouchOneByOne::create();
@@ -30,9 +30,25 @@ InputListener::InputListener(InputControlMovementArrows* aArrow, InputControlPro
 // touch happened
 bool InputListener::touchBegan(const cocos2d::Touch* touch, cocos2d::Event *event)
 {
-    if( /* call arrow */)
+    if(Arrow->touchBegan(touch, event))
         return true;
     
-    // call projectile
+    Projectile->touchBegan(touch, event);
+    
     return true;
+}
+
+// touch moved
+void InputListener::touchMoved(const cocos2d::Touch* touch, cocos2d::Event *event)
+{
+    Arrow->touchMoved(touch, event);
+}
+
+// touch ended
+void InputListener::touchEnded(const cocos2d::Touch* touch, cocos2d::Event *event)
+{
+    if(Arrow->touchEnded(touch, event))
+        return;
+    
+    Projectile->touchEnded(touch, event);
 }

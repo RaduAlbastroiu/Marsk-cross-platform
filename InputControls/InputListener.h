@@ -12,6 +12,7 @@
 #include "InputControls/InputControlProjectiles.h"
 USING_NS_CC;
 
+// this Layer class has to be add as a child of the scene
 class InputListener : public cocos2d::Layer
 {
 
@@ -27,7 +28,7 @@ public:
 private:
     
     InputControlMovementArrows* Arrow;
-    InputControlProjectiles* Projecctile;
+    InputControlProjectiles* Projectile;
     
     cocos2d::EventListenerTouchOneByOne* touchListener;
 
