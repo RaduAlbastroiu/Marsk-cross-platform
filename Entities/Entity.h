@@ -7,9 +7,8 @@
 //
 
 #pragma once
+#include <stdio.h>
 #include "cocos2d.h"
-#include "Entities/Entities.h"
-#include "InputControls/InputControls.h"
 #include "Projectiles/Projectiles.h"
 
 using namespace std;

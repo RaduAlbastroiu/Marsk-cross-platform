@@ -7,9 +7,7 @@
 //
 
 #pragma once
-#include <stdio.h>
 #include "Entities/Entity.h"
-#include "Entities/Entities.h"
 
 using namespace std;
 

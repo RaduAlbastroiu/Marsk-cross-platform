@@ -8,9 +8,8 @@
 
 #pragma once
 #include "cocos2d.h"
-#include "InputControls/InputControls.h"
 #include "InputControls/InputControl.h"
-#include "Entities/Entity.h"
+#include "Entities/Hero.h"
 
 
 class InputControlProjectiles : public InputControl
@@ -19,12 +18,7 @@ class InputControlProjectiles : public InputControl
 public:
     
     // constructor
-    InputControlProjectiles(cocos2d::Scene* aScene, Entity* aEntity);
-    
-    // destructor
-    ~InputControlProjectiles() = default;
-    
-    cocos2d::EventListener* getListener() override;
+    InputControlProjectiles(cocos2d::Scene* aScene, Hero* aEntity);
     
     virtual void update(float delta) override;
     

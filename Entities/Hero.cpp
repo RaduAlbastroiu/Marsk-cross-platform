@@ -7,9 +7,6 @@
 //
 
 #include "Entities/Hero.h"
-#include "InputControls/InputControl.h"
-#include "InputControls/InputControlMovement.h"
-#include "Projectiles/ProjectilesHero.h"
 
 Hero::Hero(cocos2d::Scene* scene, float speed)
 {
@@ -23,7 +20,7 @@ Hero::Hero(cocos2d::Scene* scene, float speed)
     speedHeroSpaceShip = 5;
     speedHeroProjectiles = 5;
     
-    loadHeroSpaceship();
+    loadHeroSpaceShip();
 }
 
 void Hero::fireSimpleProjectile()
@@ -63,7 +60,7 @@ void Hero::setTextureCenter()
     heroSpaceShip->setTexture("res/elonCenter.png");
 }
 
-void Hero::loadHeroSpaceship()
+void Hero::loadHeroSpaceShip()
 {
     heroSpaceShip = cocos2d::Sprite::create("res/elonBack.png");
     heroSpaceShip->setAnchorPoint(Vec2(0.5, 0.5));

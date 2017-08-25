@@ -7,10 +7,9 @@
 //
 
 #pragma once
+#include "cocos2d.h"
 #include "InputControls/InputControls.h"
 #include "InputControls/InputListener.h"
-#include "cocos2d.h"
-#include "Entities/Entity.h"
 
 USING_NS_CC;
 using namespace std;
@@ -19,7 +18,7 @@ class ManagerInputControls
 {
     
 public:
-    ManagerInputControls(cocos2d::Scene* aScene, Entity* aEntity);
+    ManagerInputControls(cocos2d::Scene* aScene, Hero* aEntity);
     ~ManagerInputControls();
     
     void updateInputControls(float delta);

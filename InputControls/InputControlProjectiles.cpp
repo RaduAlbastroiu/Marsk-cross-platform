@@ -10,15 +10,14 @@
 #include <stdio.h>
 #include "cocos2d.h"
 #include "InputControls/InputControlProjectiles.h"
-#include "InputControls/InputControls.h"
-#include "InputControls/InputControl.h"
-#include "Entities/Entity.h"
 using namespace std;
 
 // constructor
-InputControlProjectiles::InputControlProjectiles(cocos2d::Scene* aScene, Entity* aEntity)
-:InputControl(aScene, aEntity)
+InputControlProjectiles::InputControlProjectiles(cocos2d::Scene* aScene, Hero* aEntity)
 {
+    targetScene = aScene;
+    targetEntity = aEntity;
+    
     fireProjectile = false;
 }
 
@@ -38,7 +37,7 @@ void InputControlProjectiles::update(float delta)
 {
     if(fireProjectile)
     {
-        currentEntity->fireSimpleProjectile();
+        targetEntity->fireSimpleProjectile();
     }
 }
 

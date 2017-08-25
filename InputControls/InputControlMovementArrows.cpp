@@ -9,18 +9,15 @@
 #pragma once
 #include <stdio.h>
 #include "cocos2d.h"
-#include "InputControls/InputControlMovement.h"
 #include "InputControls/InputControlMovementArrows.h"
-#include "InputControls/InputControls.h"
-#include "InputControls/InputControl.h"
-#include "Entities/Entity.h"
 
 // constructor
-InputControlMovementArrows::InputControlMovementArrows(cocos2d::Scene* aScene, Entity* aEntity)
+InputControlMovementArrows::InputControlMovementArrows(cocos2d::Scene* aScene, Hero* aEntity)
 {
-    currentScene = aScene;
-    currentEntity = aEntity;
     
+    targetScene = aScene;
+    targetEntity = aEntity;
+
     leftArrowPressed = false;
     rightArrowPressed = false;
     leftArrowPositionX = 0.075;
@@ -118,9 +115,9 @@ void InputControlMovementArrows::addLeftMovementArrow()
     leftArrow = cocos2d::Sprite::create("res/leftArrow.png");
     leftArrow->setAnchorPoint(cocos2d::Vec2(0.5,0.5));
     leftArrow->setScale(0.5);
-    leftArrow->setPosition(currentScene->getBoundingBox().getMaxX() * 0.075, currentScene->getBoundingBox().getMaxY() * 0.20 );
+    leftArrow->setPosition(targetScene->getBoundingBox().getMaxX() * 0.075, targetScene->getBoundingBox().getMaxY() * 0.20 );
     
-    currentScene->addChild(leftArrow, 1);
+    targetScene->addChild(leftArrow, 1);
 }
 
 // add right movement arrow
@@ -129,9 +126,9 @@ void InputControlMovementArrows::addRightMovementArrow()
     rightArrow = cocos2d::Sprite::create("res/rightArrow.png");
     rightArrow->setAnchorPoint(cocos2d::Vec2(0.5,0.5));
     rightArrow->setScale(0.5);
-    rightArrow->setPosition(currentScene->getBoundingBox().getMaxX() * 0.925, currentScene->getBoundingBox().getMaxY() * 0.20 );
+    rightArrow->setPosition(targetScene->getBoundingBox().getMaxX() * 0.925, targetScene->getBoundingBox().getMaxY() * 0.20 );
     
-    currentScene->addChild(rightArrow, 1);
+    targetScene->addChild(rightArrow, 1);
 }
 
 void InputControlMovementArrows::loadMovementArrowLeftSelected()
@@ -159,14 +156,14 @@ void InputControlMovementArrows::update(float delta)
 {
     
     if (leftArrowPressed && !rightArrowPressed)
-        currentEntity->moveLeft(delta);
+        targetEntity->moveLeft(delta);
     
     
     if (rightArrowPressed && !leftArrowPressed)
-        currentEntity->moveRight(delta);
+        targetEntity->moveRight(delta);
     
     if (!leftArrowPressed && !rightArrowPressed)
-        currentEntity->moveStop();
+        targetEntity->moveStop();
     
 }
 

@@ -7,17 +7,7 @@
 //
 
 #include <stdio.h>
-#include <algorithm>
-#include <vector>
-#include "cocos2d.h"
 #include "InputControls/InputControls.h"
-
-
-// destructor
-InputControls::~InputControls()
-{
-    inputControlContainer.clear();
-}
 
 // add a new type of inputControl
 void InputControls::add(InputControl* ptr)

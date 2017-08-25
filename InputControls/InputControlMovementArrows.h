@@ -8,30 +8,21 @@
 
 #pragma once
 #include "cocos2d.h"
-#include "InputControls/InputControls.h"
 #include "InputControls/InputControl.h"
-#include "InputControls/InputControlMovement.h"
-#include "Entities/Entity.h"
+#include "Entities/Hero.h"
 
 USING_NS_CC;
 using namespace std;
 
-class InputControlMovementArrows : public InputControlMovement
+class InputControlMovementArrows : public InputControl
 {
     
 public:
     
     // constructor
-    InputControlMovementArrows(cocos2d::Scene* aScene, Entity* aEntity);
+    InputControlMovementArrows(cocos2d::Scene* aScene, Hero* aEntity);
     
-    // destructor
-    ~InputControlMovementArrows() = default;
-    
-    void addInputVisualButtons() override;
-    
-    cocos2d::EventListener* getListener() override;
-    
-    virtual void update(float delta) override;
+    void update(float delta) override;
     
     bool touchBegan(const cocos2d::Touch* touch, cocos2d::Event* event);
     void touchMoved(const cocos2d::Touch* touch, cocos2d::Event* event);
@@ -39,11 +30,9 @@ public:
     
 private:
     
-    // some redesign for arrows may be needed
-    
     void setTouchListener();
     
-
+    void addInputVisualButtons();
     
     void addLeftMovementArrow();
     void addRightMovementArrow();

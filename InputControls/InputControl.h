@@ -8,8 +8,7 @@
 
 #pragma once
 #include "cocos2d.h"
-#include "InputControls/InputControls.h"
-#include "Entities/Entity.h"
+#include "Entities/Hero.h"
 
 USING_NS_CC;
 using namespace std;
@@ -18,11 +17,6 @@ using namespace std;
 class InputControl
 {
 public:
-    // constructor
-    InputControl(cocos2d::Scene* aScene, Entity* aEntity);
-    
-    // destructor
-    virtual ~InputControl();
     
     // pure virtual method
     virtual void addInputVisualButtons();
@@ -33,7 +27,7 @@ public:
     
 protected:
     
-    Entity* currentEntity;
-    cocos2d::Scene* currentScene;
+    Hero* targetEntity;
+    cocos2d::Scene* targetScene;
     
 };

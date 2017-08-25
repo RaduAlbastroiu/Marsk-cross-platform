@@ -8,6 +8,8 @@
 
 #pragma once
 #include "cocos2d.h"
+#include "Projectiles/Projectiles.h"
+#include "Projectiles/ProjectilesHero.h"
 #include "Entities/Entity.h"
 
 USING_NS_CC;
@@ -27,16 +29,17 @@ public:
 
 private:
     
+    void loadHeroSpaceShip();
+    
     void setTextureCenter() override;
     void setTextureLeft() override;
     void setTextureRight() override;
-    
-    void loadHeroSpaceship();
     
     float speedHeroSpaceShip;
     float speedHeroProjectiles;
     
     cocos2d::Sprite* heroSpaceShip;
     cocos2d::Scene* currentScene;
+    
 };
 

@@ -10,12 +10,11 @@
 #include <stdio.h>
 #include "cocos2d.h"
 #include "InputControls/ManagerInputControls.h"
-#include "InputControls/InputControl.h"
 #include "InputControls/InputControlMovementArrows.h"
 #include "InputControls/InputControlProjectiles.h"
 
 // constructor
-ManagerInputControls::ManagerInputControls(cocos2d::Scene* aScene, Entity* aEntity)
+ManagerInputControls::ManagerInputControls(cocos2d::Scene* aScene, Hero* aEntity)
 {
     // create inputControls
     inputControls = new InputControls();
