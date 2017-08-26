@@ -23,6 +23,9 @@ public:
     // update
     void update(float delta);
     
+    // getter
+    Hero* getHero();
+    
 private:
     
     Entities* enemiesContainer;

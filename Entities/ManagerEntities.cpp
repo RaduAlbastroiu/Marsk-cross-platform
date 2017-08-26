@@ -17,6 +17,7 @@ ManagerEntities::ManagerEntities(cocos2d::Scene* aScene, int nrEnemies)
     // create nr Enemies
     
     theHero = new Hero(currentScene);
+
 }
 
 // destructor
@@ -35,4 +36,10 @@ void ManagerEntities::update(float delta)
 {
     theHero -> update(delta);
     enemiesContainer -> update(delta);
+}
+
+// getter
+Hero* ManagerEntities::getHero()
+{
+    return theHero;
 }

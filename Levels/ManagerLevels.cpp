@@ -22,13 +22,13 @@ void ManagerLevels::start()
 }
 
 // app paused
-void pause()
+void ManagerLevels::pause()
 {
     // put everything on pause
 }
 
 // app relaunch
-void contnue()
+void ManagerLevels::contnue()
 {
     // reload from last scene
 }
