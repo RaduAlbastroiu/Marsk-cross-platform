@@ -30,10 +30,14 @@ static cocos2d::Size largeResolutionSize = cocos2d::Size(2048, 1536);
 
 AppDelegate::AppDelegate()
 {
+    myManager = new ManagerLevels(Director::getInstance());
 }
 
 AppDelegate::~AppDelegate() 
 {
+    // delete myManager
+    delete myManager;
+    
 #if USE_AUDIO_ENGINE
     AudioEngine::end();
 #elif USE_SIMPLE_AUDIO_ENGINE
@@ -95,29 +99,24 @@ bool AppDelegate::applicationDidFinishLaunching() {
     }
     
     register_all_packages();
-	
-	// create listener
-	//auto inputListener = InputListener();
-
-    // create a scene. it's an autorelease object
-
-    auto intro = Intro::createScene();
-	//auto level = Level1Scene::createScene();
-	//auto level2 = Level2Scene::createScene();
 
     // run
-	Director::getInstance()->runWithScene(intro);
-
+    myManager->start();
+    
     return true;
 }
 
 // This function will be called when the app is inactive. Note, when receiving a phone call it is invoked.
 void AppDelegate::applicationDidEnterBackground() {
-    Director::getInstance()->stopAnimation();
+    
+    // pause all
+    myManager->pause();
+    
+    //Director::getInstance()->stopAnimation();
 
-	auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-	audio->pauseAllEffects();
-	audio->pauseBackgroundMusic();
+	//auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+	//audio->pauseAllEffects();
+	//audio->pauseBackgroundMusic();
 
 #if USE_AUDIO_ENGINE
     AudioEngine::pauseAll();
@@ -129,11 +128,15 @@ void AppDelegate::applicationDidEnterBackground() {
 
 // this function will be called when the app is active again
 void AppDelegate::applicationWillEnterForeground() {
-    Director::getInstance()->startAnimation();
+    
+    // continue all
+    myManager->contnue();
+    
+    //Director::getInstance()->startAnimation();
 
-	auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-	audio->resumeAllEffects();
-	audio->resumeBackgroundMusic();
+	//auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+	//audio->resumeAllEffects();
+	//audio->resumeBackgroundMusic();
 
 #if USE_AUDIO_ENGINE
     AudioEngine::resumeAll();
