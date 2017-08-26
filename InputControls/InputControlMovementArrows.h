@@ -7,13 +7,14 @@
 //
 
 #pragma once
-#include "cocos2d.h"
+#include "Header.h"
 #include "InputControls/InputControl.h"
 #include "Entities/Hero.h"
 
 USING_NS_CC;
 using namespace std;
 
+// implementation of interface InputControl
 class InputControlMovementArrows : public InputControl
 {
     
@@ -21,6 +22,9 @@ public:
     
     // constructor
     InputControlMovementArrows(cocos2d::Scene* aScene, Hero* aEntity);
+    
+    // destructor
+    ~InputControlMovementArrows();
     
     void update(float delta) override;
     
@@ -47,14 +51,17 @@ private:
     float rightArrowPositionX;
     float rightArrowPositionY;
     
+    bool leftArrowPressed;
+    bool rightArrowPressed;
+    
     cocos2d::Sprite* leftArrow;
     cocos2d::Sprite* rightArrow;
     
     cocos2d::Touch* leftArrowTouch;
     cocos2d::Touch* rightArrowTouch;
     
-    bool leftArrowPressed;
-    bool rightArrowPressed;
+    Hero* targetEntity;
+    cocos2d::Scene* targetScene;
     
 };
 

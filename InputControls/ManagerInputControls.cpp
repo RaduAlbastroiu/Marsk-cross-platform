@@ -7,8 +7,6 @@
 //
 
 #pragma once
-#include <stdio.h>
-#include "cocos2d.h"
 #include "InputControls/ManagerInputControls.h"
 #include "InputControls/InputControlMovementArrows.h"
 #include "InputControls/InputControlProjectiles.h"
@@ -38,6 +36,7 @@ ManagerInputControls::ManagerInputControls(cocos2d::Scene* aScene, Hero* aEntity
 // destructor
 ManagerInputControls::~ManagerInputControls()
 {
+    delete inputListener;
     delete inputControls;
 }
 

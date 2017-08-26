@@ -7,19 +7,15 @@
 //
 
 #pragma once
+#include "Header.h"
 #include "Projectiles/Projectile.h"
-#include "cocos2d.h"
-#include <algorithm>
-#include <vector>
-#include <utility>
-using namespace std;
-USING_NS_CC;
 
 // abstract class
 class Projectiles
 {
 public:
-    virtual ~Projectiles() = default;
+
+    virtual ~Projectiles();
 
     void update();
     

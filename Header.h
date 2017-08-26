@@ -22,6 +22,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <cstdint>
+#include <memory>
 #include "cocos2d.h"
 
 using namespace std;

@@ -7,8 +7,6 @@
 //
 
 #pragma once
-#include <stdio.h>
-#include "cocos2d.h"
 #include "InputControls/InputControlMovementArrows.h"
 
 // constructor
@@ -29,13 +27,26 @@ InputControlMovementArrows::InputControlMovementArrows(cocos2d::Scene* aScene, H
     setTouchListener();
 }
 
+// destructor
+InputControlMovementArrows::~InputControlMovementArrows()
+{
+    // remove from scene
+    targetScene->removeChild(leftArrow);
+    targetScene->removeChild(rightArrow);
+    
+    // clear memory
+    delete leftArrow;
+    delete rightArrow;
+    delete leftArrowTouch;
+    delete rightArrowTouch;
+    delete targetEntity;
+}
+
 // add movement arrows
 void InputControlMovementArrows::addInputVisualButtons()
 {
     addLeftMovementArrow();
     addRightMovementArrow();
-    
-    setTouchListener();
 }
 
 // touch began

@@ -12,13 +12,19 @@
 #include "Projectiles/Projectiles.h"
 #include "Projectiles/ProjectilesEnemy.h"
 #include "Projectiles/ProjectileEnemySimple.h"
-#include "cocos2d.h"
-#include <algorithm>
-#include <vector>
-#include <utility>
-#include <memory>
+
 USING_NS_CC;
 using namespace std;
+
+// destructor
+ProjectilesEnemy::~ProjectilesEnemy()
+{
+    for(auto it = projectilesContainer.begin(); it != projectilesContainer.end(); ++it)
+    {
+        delete (*it);
+    }
+    projectilesContainer.clear();
+}
 
 // add new enemy projectile simple
 void ProjectilesEnemy::addSimpleProjectile(cocos2d::Scene* scene, Sprite* enemySpaceShip, float speed)

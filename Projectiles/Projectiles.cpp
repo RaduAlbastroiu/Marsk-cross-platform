@@ -7,12 +7,8 @@
 //
 
 #pragma once
-#include <stdio.h>
 #include "Projectiles/Projectile.h"
 #include "Projectiles/Projectiles.h"
-#include "cocos2d.h"
-USING_NS_CC;
-using namespace std;
 
 // check collisions
 bool Projectiles::collisionWith(cocos2d::Sprite* aObj)
@@ -25,6 +21,9 @@ bool Projectiles::collisionWith(cocos2d::Sprite* aObj)
         {
             // delete projectile
             auto it = find(projectilesContainer.begin(), projectilesContainer.end(), someProjectile);
+            // dealocate memory
+            delete (*it);
+            // erase from projectiles container
             projectilesContainer.erase(it);
             
             // return true for collision
@@ -45,7 +44,11 @@ void Projectiles::update()
         {
             // delete projectile
             auto it = find(projectilesContainer.begin(), projectilesContainer.end(), someProjectile);
+            // dealocate memory
+            delete (*it);
+            // erase from projectiles container
             projectilesContainer.erase(it);
+
         }
     }
 }

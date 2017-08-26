@@ -7,19 +7,21 @@
 //
 
 #pragma once
-#include <stdio.h>
-#include "cocos2d.h"
+#include "Header.h"
 #include "Projectiles/Projectiles.h"
 
 using namespace std;
 USING_NS_CC;
 
 // abstract class
+// used just as an interface
 class Entity
 {
 public:
     
-    void update(float delta);
+    virtual ~Entity();
+    
+    virtual void update(float delta) = 0;
     
     virtual void fireSimpleProjectile() = 0;
     
@@ -32,7 +34,5 @@ protected:
     virtual void setTextureCenter() = 0;
     virtual void setTextureLeft() = 0;
     virtual void setTextureRight() = 0;
-
-    Projectiles* projectileEntity;
 
 };

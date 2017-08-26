@@ -7,11 +7,11 @@
 //
 
 #pragma once
-#include <stdio.h>
 #include "InputControls/InputListener.h"
 
 using namespace std;
 
+// constructor
 InputListener::InputListener(InputControlMovementArrows* aArrow, InputControlProjectiles* aProjecctile)
 :Arrow(Arrow), Projectile(aProjecctile)
 {
@@ -25,6 +25,14 @@ InputListener::InputListener(InputControlMovementArrows* aArrow, InputControlPro
     touchListener->setSwallowTouches(true);
     
     _eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener, this);
+}
+
+// destructor
+InputListener::~InputListener()
+{
+    delete Arrow;
+    delete Projectile;
+    delete touchListener;
 }
 
 // touch happened

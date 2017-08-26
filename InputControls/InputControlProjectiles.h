@@ -7,7 +7,7 @@
 //
 
 #pragma once
-#include "cocos2d.h"
+#include "Header.h"
 #include "InputControls/InputControl.h"
 #include "Entities/Hero.h"
 
@@ -20,6 +20,9 @@ public:
     // constructor
     InputControlProjectiles(cocos2d::Scene* aScene, Hero* aEntity);
     
+    // destructor
+    ~InputControlProjectiles();
+    
     virtual void update(float delta) override;
     
     void touchBegan(const cocos2d::Touch* touch, cocos2d::Event* event);
@@ -28,5 +31,8 @@ public:
 private:
     
     bool fireProjectile;
+    
+    Hero* targetEntity;
+    cocos2d::Scene* targetScene;
     
 };

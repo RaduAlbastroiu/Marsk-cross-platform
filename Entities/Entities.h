@@ -7,9 +7,7 @@
 //
 
 #pragma once
-#include <algorithm>
-#include <vector>
-#include "cocos2d.h"
+#include "Header.h"
 #include "Entities/Entity.h"
 
 using namespace std;
@@ -18,6 +16,9 @@ USING_NS_CC;
 class Entities
 {
 public:
+    
+    // destructor
+    ~Entities();
     
     void update(float delta);
     

@@ -7,7 +7,7 @@
 //
 
 #pragma once
-#include "cocos2d.h"
+#include "Header.h"
 #include "InputControls/InputControlMovementArrows.h"
 #include "InputControls/InputControlProjectiles.h"
 USING_NS_CC;
@@ -20,6 +20,9 @@ public:
 
     // constructor
     InputListener(InputControlMovementArrows* aArrow, InputControlProjectiles* aProjecctile);
+    
+    // destructor
+    ~InputListener();
     
     bool touchBegan(const cocos2d::Touch* touch, cocos2d::Event* event);
     void touchMoved(const cocos2d::Touch* touch, cocos2d::Event* event);

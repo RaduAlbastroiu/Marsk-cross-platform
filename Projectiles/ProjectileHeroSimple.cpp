@@ -35,8 +35,11 @@ ProjectileHeroSimple::ProjectileHeroSimple(cocos2d::Scene* aScene, Sprite* aHero
 // destructor
 ProjectileHeroSimple::~ProjectileHeroSimple()
 {
+    // remove from scene
     scene->removeChild(projectile);
-    delete this;
+    
+    // clear memory
+    delete projectile;
 }
 
 // returns true if there is a collision

@@ -7,7 +7,7 @@
 //
 
 #pragma once
-#include "cocos2d.h"
+#include "Header.h"
 #include "Projectiles/Projectiles.h"
 #include "Projectiles/ProjectilesHero.h"
 #include "Entities/Entity.h"
@@ -15,11 +15,18 @@
 USING_NS_CC;
 using namespace std;
 
+// implementation of entity interface
 class Hero : public Entity
 {
 public:
-    Hero(cocos2d::Scene* scene, float speed);
-    ~Hero() = default;
+    
+    // constructor
+    Hero(cocos2d::Scene* scene);
+    
+    // destructor
+    ~Hero();
+    
+    void update(float delta) override;
     
     void fireSimpleProjectile() override;
     
@@ -38,6 +45,7 @@ private:
     float speedHeroSpaceShip;
     float speedHeroProjectiles;
     
+    Projectiles* projectileEntity;
     cocos2d::Sprite* heroSpaceShip;
     cocos2d::Scene* currentScene;
     

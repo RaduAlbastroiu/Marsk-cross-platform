@@ -7,7 +7,7 @@
 //
 
 #pragma once
-#include "cocos2d.h"
+#include "Header.h"
 #include "Entities/Hero.h"
 
 USING_NS_CC;
@@ -18,16 +18,9 @@ class InputControl
 {
 public:
     
-    // pure virtual method
-    virtual void addInputVisualButtons();
-    
-    virtual cocos2d::EventListener* getListener();
-    
+    // virtual destructor
+    virtual ~InputControl();
+        
     virtual void update(float delta) = 0;
-    
-protected:
-    
-    Hero* targetEntity;
-    cocos2d::Scene* targetScene;
-    
+
 };

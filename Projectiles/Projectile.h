@@ -13,6 +13,7 @@
 USING_NS_CC;
 using namespace std;
 
+// abstract class
 class Projectile
 {
 public:
@@ -23,5 +24,5 @@ public:
     virtual bool isStillInViewArea() = 0;
     
     // destructor
-    virtual ~Projectile() = default;
+    virtual ~Projectile();
 };

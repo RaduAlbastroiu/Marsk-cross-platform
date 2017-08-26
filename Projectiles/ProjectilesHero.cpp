@@ -11,13 +11,19 @@
 #include "Projectiles/Projectile.h"
 #include "Projectiles/Projectiles.h"
 #include "Projectiles/ProjectilesHero.h"
-#include "cocos2d.h"
-#include <algorithm>
-#include <vector>
-#include <utility>
-#include <memory>
+
 USING_NS_CC;
 using namespace std;
+
+// destructor
+ProjectilesHero::~ProjectilesHero()
+{
+    for(auto it = projectilesContainer.begin(); it != projectilesContainer.end(); ++it)
+    {
+        delete (*it);
+    }
+    projectilesContainer.clear();
+}
 
 // add new hero projectile simple
 void ProjectilesHero::addSimpleProjectile(cocos2d::Scene* scene, Sprite* heroSpaceShip, float speed)

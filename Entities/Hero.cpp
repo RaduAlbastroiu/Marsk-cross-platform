@@ -8,7 +8,8 @@
 
 #include "Entities/Hero.h"
 
-Hero::Hero(cocos2d::Scene* scene, float speed)
+// constructor
+Hero::Hero(cocos2d::Scene* scene)
 {
 
     // asign projectile object
@@ -21,6 +22,20 @@ Hero::Hero(cocos2d::Scene* scene, float speed)
     speedHeroProjectiles = 5;
     
     loadHeroSpaceShip();
+}
+
+// destructor
+Hero::~Hero()
+{
+    delete projectileEntity;
+    delete heroSpaceShip;
+}
+
+// update
+void Hero::update(float delta)
+{
+    // update projectiles
+    projectileEntity->update();
 }
 
 void Hero::fireSimpleProjectile()

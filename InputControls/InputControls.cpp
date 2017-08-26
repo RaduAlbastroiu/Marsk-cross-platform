@@ -6,8 +6,17 @@
 //
 //
 
-#include <stdio.h>
+#pragma once
 #include "InputControls/InputControls.h"
+
+// destructor
+InputControls::~InputControls()
+{
+    for(auto it = inputControlContainer.begin(); it != inputControlContainer.end(); it++)
+        delete (*it);
+    
+    inputControlContainer.clear();
+}
 
 // add a new type of inputControl
 void InputControls::add(InputControl* ptr)

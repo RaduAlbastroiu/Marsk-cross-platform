@@ -10,10 +10,3 @@
 #include "Entities/Entity.h"
 
 using namespace std;
-
-// update Entity
-void Entity::update(float delta)
-{
-    // update Projectiles
-    projectileEntity->update();
-}

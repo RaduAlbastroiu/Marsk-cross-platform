@@ -7,11 +7,19 @@
 //
 
 #pragma once
-#include <stdio.h>
-#include "cocos2d.h"
 #include "Entities/Entities.h"
 
 using namespace std;
+
+// destructor
+Entities::~Entities()
+{
+    for(auto it = entitiesContainer.begin(); it != entitiesContainer.end(); ++it)
+    {
+        delete (*it);
+    }
+    entitiesContainer.clear();
+}
 
 // update
 void Entities::update(float delta)

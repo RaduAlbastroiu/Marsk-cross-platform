@@ -10,20 +10,14 @@
 #include "Projectiles/Projectile.h"
 #include "Projectiles/Projectiles.h"
 #include "Projectiles/ProjectileHeroSimple.h"
-#include "cocos2d.h"
-#include <algorithm>
-#include <vector>
-#include <utility>
-#include <memory>
-
-using namespace std;
-USING_NS_CC;
+#include "Header.h"
 
 class ProjectilesHero : public Projectiles
 {
 public:
 
-    virtual ~ProjectilesHero() = default;
+    // destructor
+    ~ProjectilesHero();
 
     void addSimpleProjectile(cocos2d::Scene* scene, Sprite* heroSpaceShip, float speed) override;
     

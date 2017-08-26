@@ -7,9 +7,7 @@
 //
 
 #pragma once
-#include <algorithm>
-#include <vector>
-#include "cocos2d.h"
+#include "Header.h"
 #include "InputControls/InputControl.h"
 
 USING_NS_CC;
@@ -19,6 +17,9 @@ using namespace std;
 class InputControls
 {
 public:
+    
+    // destructor
+    ~InputControls();
     
     void add(InputControl* ptr);
     

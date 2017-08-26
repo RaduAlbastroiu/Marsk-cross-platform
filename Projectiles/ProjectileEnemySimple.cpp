@@ -36,7 +36,7 @@ ProjectileEnemySimple::ProjectileEnemySimple(cocos2d::Scene* aScene, Sprite* aHe
 ProjectileEnemySimple::~ProjectileEnemySimple()
 {
     scene->removeChild(projectile);
-    delete this;
+    delete projectile;
 }
 
 // returns true if there is a collision

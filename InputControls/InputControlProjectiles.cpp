@@ -7,8 +7,6 @@
 //
 
 #pragma once
-#include <stdio.h>
-#include "cocos2d.h"
 #include "InputControls/InputControlProjectiles.h"
 using namespace std;
 
@@ -19,6 +17,12 @@ InputControlProjectiles::InputControlProjectiles(cocos2d::Scene* aScene, Hero* a
     targetEntity = aEntity;
     
     fireProjectile = false;
+}
+
+// destructor
+InputControlProjectiles::~InputControlProjectiles()
+{
+    delete targetEntity;
 }
 
 // touch began

@@ -6,5 +6,5 @@
 //
 //
 
-#include <stdio.h>
-#include "cocos2d.h"
+#pragma once
+#include "InputControls/InputControl.h"
