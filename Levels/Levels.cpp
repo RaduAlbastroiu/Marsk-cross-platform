@@ -27,7 +27,13 @@ void Levels::addLevel(cocos2d::Scene* aLevelScene)
 // next scene
 cocos2d::Scene* Levels::nextLevel()
 {
-    cocos2d::Scene* nextScene = levelContainer.front();
-    levelContainer.pop_front();
+    cocos2d::Scene* nextScene = nullptr;
+    
+    if(levelContainer.size())
+    {
+        nextScene = levelContainer.front();
+        levelContainer.pop_front();
+    }
+    
     return nextScene;
 }

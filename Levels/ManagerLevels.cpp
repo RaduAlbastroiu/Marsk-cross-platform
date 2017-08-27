@@ -23,6 +23,9 @@ directorRef(aDirectorRef)
 void ManagerLevels::start()
 {
     // manage scenes here
+    if(currentRunningScene == nullptr)
+        directorRef->end();
+    
     directorRef->runWithScene(currentRunningScene);
 }
 
