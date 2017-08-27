@@ -8,6 +8,8 @@
 
 #pragma once
 #include "Header.h"
+#include "Levels.h"
+#include "Level.h"
 
 class ManagerLevels
 {
@@ -26,12 +28,17 @@ public:
     void pause();
     
     // app relaunch
-    void contnue();
+    void resume();
     
 protected:
     
     // play a scene
     void runWithScene(cocos2d::Scene* aScene);
+    
+    cocos2d::Scene* currentRunningScene;
+    Level* currentLevel;
+    
+    Levels* levelsContainer;
     
     Director* directorRef;
     

@@ -33,6 +33,8 @@ public:
     void moveLeft(float delta) override;
     void moveRight(float delta) override;
     void moveStop() override;
+    
+    bool isAlive() override;
 
 private:
     

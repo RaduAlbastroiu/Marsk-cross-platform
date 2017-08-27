@@ -28,8 +28,12 @@ public:
     virtual void moveLeft(float delta) = 0;
     virtual void moveRight(float delta) = 0;
     virtual void moveStop() = 0;
+    
+    virtual bool isAlive() = 0;
 
 protected:
+    
+    int nrLifes;
     
     virtual void setTextureCenter() = 0;
     virtual void setTextureLeft() = 0;

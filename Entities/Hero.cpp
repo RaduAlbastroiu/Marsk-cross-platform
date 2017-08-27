@@ -20,6 +20,7 @@ Hero::Hero(cocos2d::Scene* scene)
     // random number for speed
     speedHeroSpaceShip = 5;
     speedHeroProjectiles = 5;
+    nrLifes = 3;
     
     loadHeroSpaceShip();
 }
@@ -82,5 +83,12 @@ void Hero::loadHeroSpaceShip()
     heroSpaceShip->setPosition(currentScene->getBoundingBox().getMidX(), currentScene->getBoundingBox().size.height / 7);
     heroSpaceShip->setScale(0.3);
     currentScene->addChild(heroSpaceShip);
+}
+
+bool Hero::isAlive()
+{
+    if(nrLifes)
+        return true;
+    return false;
 }
 

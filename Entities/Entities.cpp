@@ -30,3 +30,13 @@ void Entities::update(float delta)
         someEntity->update(delta);
     }
 }
+
+// if there is at least one surviving entity
+bool Entities::areAlive()
+{
+    for(auto & entity : entitiesContainer)
+        if(entity->isAlive())
+            return true;
+    
+    return false;
+}

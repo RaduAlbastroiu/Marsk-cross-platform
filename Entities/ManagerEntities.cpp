@@ -43,3 +43,13 @@ Hero* ManagerEntities::getHero()
 {
     return theHero;
 }
+
+bool ManagerEntities::isHeroAlive()
+{
+    return theHero->isAlive();
+}
+
+bool ManagerEntities::isEnemyAlive()
+{
+    return enemiesContainer->areAlive();
+}

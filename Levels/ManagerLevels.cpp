@@ -13,29 +13,36 @@
 ManagerLevels::ManagerLevels(Director* aDirectorRef):
 directorRef(aDirectorRef)
 {
+    // build all the scenes
+    // then take them one by one
+    currentRunningScene = levelsContainer->nextLevel();
+    currentLevel = dynamic_cast<Level*>(currentRunningScene);
 }
 
 // app start
 void ManagerLevels::start()
 {
     // manage scenes here
+    directorRef->runWithScene(currentRunningScene);
 }
 
 // app paused
 void ManagerLevels::pause()
 {
     // put everything on pause
+    directorRef->pause();
 }
 
 // app relaunch
-void ManagerLevels::contnue()
+void ManagerLevels::resume()
 {
     // reload from last scene
+    directorRef->resume();
 }
 
 
 // play a scene
 void ManagerLevels::runWithScene(cocos2d::Scene* aScene)
 {
-    directorRef->runWithScene(aScene);
+    directorRef->replaceScene(aScene);
 }

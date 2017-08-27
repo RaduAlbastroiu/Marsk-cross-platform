@@ -21,7 +21,7 @@ public:
     ManagerInputControls(cocos2d::Scene* aScene, Hero* aEntity);
     ~ManagerInputControls();
     
-    void updateInputControls(float delta);
+    void update(float delta);
     
 private:
     

@@ -41,7 +41,7 @@ ManagerInputControls::~ManagerInputControls()
 }
 
 // update 
-void ManagerInputControls::updateInputControls(float delta)
+void ManagerInputControls::update(float delta)
 {
     inputControls->update(delta);
 }

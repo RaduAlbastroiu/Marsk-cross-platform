@@ -6,6 +6,28 @@
 //
 //
 
+#pragma once
 #include "Levels.h"
 
-// not implemented yet
+// destructor
+Levels::~Levels()
+{
+    for( auto it = levelContainer.begin(); it != levelContainer.end(); ++it)
+        delete (*it);
+    
+    levelContainer.clear();
+}
+
+// add level
+void Levels::addLevel(cocos2d::Scene* aLevelScene)
+{
+    levelContainer.push_back(dynamic_cast<Level*>(aLevelScene));
+}
+
+// next scene
+cocos2d::Scene* Levels::nextLevel()
+{
+    cocos2d::Scene* nextScene = levelContainer.front();
+    levelContainer.pop_front();
+    return nextScene;
+}

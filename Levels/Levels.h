@@ -26,13 +26,10 @@ public:
     // add level
     void addLevel(cocos2d::Scene* aLevelScene);
     
-    // level has finished
-    bool isLevelFinished();
-    
     // give next level
     cocos2d::Scene* nextLevel();
     
 private:
     
-    vector<Level*> levelContainer;
+    deque<Level*> levelContainer;
 };

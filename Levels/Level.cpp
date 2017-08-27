@@ -22,12 +22,15 @@ Level::~Level()
     delete inputManager;
 }
 
-// run level
+// kind of constructor for level
 bool Level::init()
 {
+    // create entities
     entitiesManager = new ManagerEntities(this, nrEnemies);
+    // create input control
     inputManager = new ManagerInputControls(this, entitiesManager->getHero());
-    // create enemies
+    
+    // add background stuff !!!!
     
     this->scheduleUpdate();
     
@@ -37,5 +40,19 @@ bool Level::init()
 // is level finished
 bool Level::isLevelFinished()
 {
-    return levelStatus;
+    //return levelStatus;
+    return false;
+}
+
+// update
+void Level::update(float delta)
+{
+    if(!entitiesManager->isHeroAlive() || entitiesManager->isEnemyAlive())
+        levelStatus = false;
+    
+    if(levelStatus)
+    {
+        entitiesManager->update(delta);
+        inputManager->update(delta);
+    }
 }

@@ -130,7 +130,7 @@ void AppDelegate::applicationDidEnterBackground() {
 void AppDelegate::applicationWillEnterForeground() {
     
     // continue all
-    myManager->contnue();
+    myManager->resume();
     
     //Director::getInstance()->startAnimation();
 

@@ -26,6 +26,9 @@ public:
     // getter
     Hero* getHero();
     
+    bool isHeroAlive();
+    bool isEnemyAlive();
+    
 private:
     
     Entities* enemiesContainer;

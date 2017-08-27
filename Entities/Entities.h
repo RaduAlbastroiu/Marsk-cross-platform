@@ -24,6 +24,7 @@ public:
     
     void addEntity(Entity* aEntity);
     
+    bool areAlive();
     
 private:
     vector<Entity*> entitiesContainer;
