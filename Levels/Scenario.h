@@ -10,7 +10,7 @@
 #include "Header.h"
 
 // Different difficulties for the game
-/*
+
 struct levelInit
 {
     // simple constructor with member initializer list
@@ -35,4 +35,3 @@ public:
     static unique_ptr<levelsInit> hardScenario();
 };
 
-*/

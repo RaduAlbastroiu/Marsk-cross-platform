@@ -9,6 +9,7 @@
 #pragma once
 #include "Header.h"
 #include "Levels/Levels.h"
+#include "Levels/Level.h"
 #include "Levels/FactoryLevels.h"
 
 class ManagerLevels

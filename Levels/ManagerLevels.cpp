@@ -14,7 +14,7 @@ ManagerLevels::ManagerLevels(Director* aDirectorRef)
 {
     directorRef = aDirectorRef;
     
-    //levelsContainer = FactoryLevels::create(move(Scenario::easyScenario()));
+    levelsContainer = FactoryLevels::createEasy();
     
     currentRunningScene = levelsContainer->nextLevel();
 }

@@ -9,7 +9,7 @@
 #pragma once
 #include "Levels/FactoryLevels.h"
 
-/*
+
 unique_ptr<Levels> FactoryLevels::create(unique_ptr<levelsInit> initList)
 {
     auto levels = make_unique<Levels>();
@@ -21,4 +21,17 @@ unique_ptr<Levels> FactoryLevels::create(unique_ptr<levelsInit> initList)
     
     return levels;
 }
-*/
+
+unique_ptr<Levels> FactoryLevels::createEasy()
+{
+    return create(Scenario::easyScenario());
+}
+
+unique_ptr<Levels> FactoryLevels::createMedm()
+{
+    return create(Scenario::mediumScenario());
+}
+unique_ptr<Levels> FactoryLevels::createHard()
+{
+    return create(Scenario::hardScenario());
+}

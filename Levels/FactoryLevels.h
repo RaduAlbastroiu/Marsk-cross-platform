@@ -12,10 +12,13 @@
 #include "Levels/Scenario.h"
 #include "Levels/FactoryLevel.h"
 
-/*
+
 class FactoryLevels
 {
-public:
     static unique_ptr<Levels> create(unique_ptr<levelsInit> initList);
+    
+public:
+    static unique_ptr<Levels> createEasy();
+    static unique_ptr<Levels> createMedm();
+    static unique_ptr<Levels> createHard();
 };
-*/

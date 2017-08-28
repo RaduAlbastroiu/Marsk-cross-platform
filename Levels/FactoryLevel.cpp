@@ -9,9 +9,8 @@
 #pragma once
 #include "Levels/FactoryLevel.h"
 
-/*
+
 Level* FactoryLevel::createLevel(levelInit& init)
 {
     return new Level(init.difficulty, init.nrEnemies);
 }
-*/

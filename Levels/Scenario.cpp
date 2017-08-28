@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include "Levels/Scenario.h"
 
-/*
+
 unique_ptr<levelsInit> Scenario::easyScenario()
 {
     vector<levelInit> easy;
@@ -43,4 +43,3 @@ unique_ptr<levelsInit> Scenario::hardScenario()
     
     return move(make_unique<levelsInit>(hard));
 }
-*/

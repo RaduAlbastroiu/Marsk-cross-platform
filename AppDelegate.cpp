@@ -4,7 +4,7 @@
 #include "Intro.h"
 #include "Level1Scene.h"
 #include "Level2Scene.h"
-
+#include "Levels/LevelTest.h"
 
 // #define USE_AUDIO_ENGINE 1
 // #define USE_SIMPLE_AUDIO_ENGINE 1
@@ -30,7 +30,7 @@ static cocos2d::Size largeResolutionSize = cocos2d::Size(2048, 1536);
 
 AppDelegate::AppDelegate()
 {
-    myManager = new ManagerLevels(Director::getInstance());
+    //myManager = new ManagerLevels(Director::getInstance());
 }
 
 AppDelegate::~AppDelegate() 
@@ -101,7 +101,9 @@ bool AppDelegate::applicationDidFinishLaunching() {
     register_all_packages();
 
     // run
-    myManager->start();
+    //myManager->start();
+    auto lvl = new LevelTest(1,1);
+    //Director::getInstance()->runWithScene(lvl);
     
     return true;
 }
