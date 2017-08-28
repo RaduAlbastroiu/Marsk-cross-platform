@@ -12,16 +12,13 @@
 // destructor
 Levels::~Levels()
 {
-    for( auto it = levelContainer.begin(); it != levelContainer.end(); ++it)
-        delete (*it);
-    
     levelContainer.clear();
 }
 
 // add level
-void Levels::addLevel(cocos2d::Scene* aLevelScene)
+void Levels::addLevel(Level* aLevelScene)
 {
-    levelContainer.push_back(dynamic_cast<Level*>(aLevelScene));
+    levelContainer.push_back(aLevelScene);
 }
 
 // next scene
@@ -31,6 +28,7 @@ cocos2d::Scene* Levels::nextLevel()
     
     if(levelContainer.size())
     {
+        // from unique to pointer
         nextScene = levelContainer.front();
         levelContainer.pop_front();
     }

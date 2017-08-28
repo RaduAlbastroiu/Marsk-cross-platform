@@ -24,7 +24,7 @@ public:
     ~Levels();
     
     // add level
-    void addLevel(cocos2d::Scene* aLevelScene);
+    void addLevel(Level* aLevelScene);
     
     // give next level
     cocos2d::Scene* nextLevel();

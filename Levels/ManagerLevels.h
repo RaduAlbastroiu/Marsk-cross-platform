@@ -8,8 +8,8 @@
 
 #pragma once
 #include "Header.h"
-#include "Levels.h"
-#include "Level.h"
+#include "Levels/Levels.h"
+#include "Levels/FactoryLevels.h"
 
 class ManagerLevels
 {
@@ -36,9 +36,9 @@ protected:
     void runWithScene(cocos2d::Scene* aScene);
     
     cocos2d::Scene* currentRunningScene;
-    Level* currentLevel;
+    unique_ptr<Level> currentLevel;
     
-    Levels* levelsContainer;
+    unique_ptr<Levels> levelsContainer;
     
     Director* directorRef;
     
