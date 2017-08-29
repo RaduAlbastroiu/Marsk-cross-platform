@@ -41,4 +41,5 @@ private:
     
     ManagerEntities* entitiesManager;
     ManagerInputControls* inputManager;
+    
 };

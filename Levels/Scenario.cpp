@@ -10,36 +10,34 @@
 #include "Levels/Scenario.h"
 
 
-unique_ptr<levelsInit> Scenario::easyScenario()
+void Scenario::easyScenario()
 {
-    vector<levelInit> easy;
     for(int i = 0; i < 9 ; i++)
     {
-        easy.emplace_back(levelInit());
+        scenarioContainer.push_back(levelInit(1,3));
     }
-    
-    return move(make_unique<levelsInit>(easy));
 }
 
 
-unique_ptr<levelsInit> Scenario::mediumScenario()
+void Scenario::mediumScenario()
 {
-    vector<levelInit> medium;
     for(int i = 0; i < 9 ; i++)
     {
-        medium.emplace_back(levelInit(0.8 + 0.2*i, i + 2));
+        scenarioContainer.push_back(levelInit(0.8 + 0.2*i, i + 2));
     }
-    
-    return move(make_unique<levelsInit>(medium));
 }
 
-unique_ptr<levelsInit> Scenario::hardScenario()
+void Scenario::hardScenario()
 {
-    vector<levelInit> hard;
     for(int i = 0; i < 9 ; i++)
     {
-        hard.emplace_back(levelInit(1 + 0.3*i, int(i * 1.5) + 5));
+        scenarioContainer.push_back(levelInit(1 + 0.3*i, int(i * 1.5) + 5));
     }
-    
-    return move(make_unique<levelsInit>(hard));
+}
+
+levelInit Scenario::nextLevelScenario()
+{
+    auto elem = scenarioContainer.front();
+    scenarioContainer.pop_front();
+    return elem;
 }

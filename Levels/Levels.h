@@ -20,6 +20,9 @@
 class Levels
 {
 public:
+    // constructor
+    Levels(Level* aLevelScene);
+    
     // destructor
     ~Levels();
     

@@ -9,6 +9,7 @@
 #pragma once
 #include "Levels/FactoryLevels.h"
 
+int FactoryLevels::levelsCreated = 0;
 
 unique_ptr<Levels> FactoryLevels::create(unique_ptr<levelsInit> initList)
 {

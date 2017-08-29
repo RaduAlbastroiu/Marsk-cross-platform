@@ -13,20 +13,16 @@
 ManagerLevels::ManagerLevels(Director* aDirectorRef)
 {
     directorRef = aDirectorRef;
-    
-    levelsContainer = FactoryLevels::createEasy();
-    
-    currentRunningScene = levelsContainer->nextLevel();
+    currentFactory = new FactoryLevel();
 }
 
 // app start
 void ManagerLevels::start()
 {
     // manage scenes here
-    if(currentRunningScene == nullptr)
-        directorRef->end();
+    currentRunningScene = currentFactory->createLevel();
     
-    directorRef->runWithScene(currentRunningScene);
+    directorRef->runWithScene(currentRunningScene->create());
 }
 
 // app paused

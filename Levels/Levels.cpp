@@ -9,6 +9,12 @@
 #pragma once
 #include "Levels/Levels.h"
 
+// constructor
+Levels::Levels(Level* aLevelScene)
+{
+    addLevel(aLevelScene);
+}
+
 // destructor
 Levels::~Levels()
 {

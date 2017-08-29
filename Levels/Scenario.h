@@ -20,18 +20,16 @@ struct levelInit
     int nrEnemies;
 };
 
-struct levelsInit
-{
-    levelsInit(vector<levelInit> alvlInit):containerLevelDiff(alvlInit){}
-    
-    vector<levelInit> containerLevelDiff;
-};
-
 class Scenario
 {
 public:
-    static unique_ptr<levelsInit> easyScenario();
-    static unique_ptr<levelsInit> mediumScenario();
-    static unique_ptr<levelsInit> hardScenario();
+    void easyScenario();
+    void mediumScenario();
+    void hardScenario();
+    
+    levelInit nextLevelScenario();
+
+private:
+    deque<levelInit> scenarioContainer;
 };
 

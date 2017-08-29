@@ -18,6 +18,9 @@ class FactoryLevels
     static unique_ptr<Levels> create(unique_ptr<levelsInit> initList);
     
 public:
+    
+    static int levelsCreated;
+    
     static unique_ptr<Levels> createEasy();
     static unique_ptr<Levels> createMedm();
     static unique_ptr<Levels> createHard();

@@ -15,9 +15,16 @@
 class FactoryLevel
 {
 public:
+    // constructor
+    FactoryLevel();
+    
     // create a level
-    static Level* createLevel(levelInit& init);
+    Level* createLevel();
+    
+    void createEasy();
+    void createMedm();
+    void createHard();
     
 private:
-    
+    unique_ptr<Scenario> currentScenario;
 };

@@ -10,7 +10,31 @@
 #include "Levels/FactoryLevel.h"
 
 
-Level* FactoryLevel::createLevel(levelInit& init)
+FactoryLevel::FactoryLevel()
 {
-    return new Level(init.difficulty, init.nrEnemies);
+    // auto choice
+    currentScenario = make_unique<Scenario>();
+    createEasy();
 }
+
+Level* FactoryLevel::createLevel()
+{
+    auto elem = currentScenario->nextLevelScenario();
+    return new Level(elem.difficulty, elem.nrEnemies);
+}
+
+void FactoryLevel::createEasy()
+{
+    currentScenario->easyScenario();
+}
+
+void FactoryLevel::createMedm()
+{
+    currentScenario->mediumScenario();
+}
+
+void FactoryLevel::createHard()
+{
+    currentScenario->hardScenario();
+}
+

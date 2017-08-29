@@ -10,7 +10,7 @@
 #include "Header.h"
 #include "Levels/Levels.h"
 #include "Levels/Level.h"
-#include "Levels/FactoryLevels.h"
+#include "Levels/FactoryLevel.h"
 
 class ManagerLevels
 {
@@ -37,9 +37,8 @@ protected:
     void runWithScene(cocos2d::Scene* aScene);
     
     cocos2d::Scene* currentRunningScene;
-    unique_ptr<Level> currentLevel;
-    
-    unique_ptr<Levels> levelsContainer;
+    Level* currentLevel;
+    FactoryLevel* currentFactory;
     
     Director* directorRef;
     
