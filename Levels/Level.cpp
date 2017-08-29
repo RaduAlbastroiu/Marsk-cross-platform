@@ -9,6 +9,12 @@
 #pragma once
 #include "Levels/Level.h"
 
+// create Scene
+cocos2d::Scene * Level::createScene()
+{
+    return Level::create();
+}
+
 // constructor
 Level::Level(float difficultyLevel, int nrEnemies):
 levelStatus(true), difficultyLevel(difficultyLevel), nrEnemies(nrEnemies)

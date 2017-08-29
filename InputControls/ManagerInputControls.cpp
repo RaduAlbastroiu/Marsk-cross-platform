@@ -18,8 +18,8 @@ ManagerInputControls::ManagerInputControls(cocos2d::Scene* aScene, Hero* aEntity
     inputControls = new InputControls();
     
     // create other InputControls
-    InputControl* move = dynamic_cast<InputControl*>(new InputControlMovementArrows(aScene, aEntity));
-    InputControl* projectile = dynamic_cast<InputControl*>(new InputControlProjectiles(aScene, aEntity));
+    InputControl* move = new InputControlMovementArrows(aScene, aEntity);
+    InputControl* projectile = new InputControlProjectiles(aScene, aEntity);
     
     // add input Controls
     inputControls->add(move);

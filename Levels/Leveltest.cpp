@@ -27,13 +27,13 @@ bool LevelTest::init()
 {
  
     // create entities
-    //entitiesManager = new ManagerEntities(this, nrEnemies);
+    entitiesManager = new ManagerEntities(this, nrEnemies);
     // create input control
-    //inputManager = new ManagerInputControls(this, entitiesManager->getHero());
+    inputManager = new ManagerInputControls(this, entitiesManager->getHero());
     
     // add background stuff !!!!
     
-    //this->scheduleUpdate();
+    this->scheduleUpdate();
     
     return true;
 }

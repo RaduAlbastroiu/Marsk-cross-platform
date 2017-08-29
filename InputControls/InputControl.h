@@ -19,7 +19,7 @@ class InputControl
 public:
     
     // virtual destructor
-    virtual ~InputControl();
+    virtual ~InputControl() = default;
         
     virtual void update(float delta) = 0;
 

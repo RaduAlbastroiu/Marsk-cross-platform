@@ -34,8 +34,6 @@ public:
     
 private:
     
-    void setTouchListener();
-    
     void addInputVisualButtons();
     
     void addLeftMovementArrow();

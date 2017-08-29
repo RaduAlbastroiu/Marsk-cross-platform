@@ -24,7 +24,7 @@ InputControlMovementArrows::InputControlMovementArrows(cocos2d::Scene* aScene, H
     rightArrowPositionY = 0.2;
 
     addInputVisualButtons();
-    setTouchListener();
+    
 }
 
 // destructor

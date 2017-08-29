@@ -102,8 +102,9 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     // run
     //myManager->start();
-    auto lvl = new LevelTest(1,1);
-    //Director::getInstance()->runWithScene(lvl);
+    
+    auto intro = Intro::createScene();
+    Director::getInstance()->runWithScene(intro);
     
     return true;
 }

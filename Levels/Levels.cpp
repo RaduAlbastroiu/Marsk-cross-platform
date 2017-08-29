@@ -24,14 +24,14 @@ void Levels::addLevel(Level* aLevelScene)
 // next scene
 cocos2d::Scene* Levels::nextLevel()
 {
-    cocos2d::Scene* nextScene = nullptr;
+    Level* nextLevel = nullptr;
     
     if(levelContainer.size())
     {
         // from unique to pointer
-        nextScene = levelContainer.front();
+        nextLevel = levelContainer.front();
         levelContainer.pop_front();
     }
     
-    return nextScene;
+    return nextLevel->createScene();
 }

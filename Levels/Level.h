@@ -15,6 +15,9 @@ class Level : public cocos2d::Scene
 {
 public:
     
+    // create scene
+    cocos2d::Scene* createScene();
+    
     // constructor
     Level(float difficultyLevel, int nrEnemies);
     

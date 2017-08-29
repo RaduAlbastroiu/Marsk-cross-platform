@@ -24,5 +24,5 @@ public:
     virtual bool isStillInViewArea() = 0;
     
     // destructor
-    virtual ~Projectile();
+    virtual ~Projectile() = default;
 };

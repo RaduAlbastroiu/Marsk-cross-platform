@@ -15,7 +15,7 @@ class Projectiles
 {
 public:
 
-    virtual ~Projectiles();
+    virtual ~Projectiles() = default;
 
     void update();
     
