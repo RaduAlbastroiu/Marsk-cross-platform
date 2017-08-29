@@ -14,12 +14,9 @@
 class Level : public cocos2d::Scene
 {
 public:
-    
+    CREATE_FUNC(Level);
     // create scene
-    cocos2d::Scene* createScene();
-    
-    // constructor
-    Level(float difficultyLevel, int nrEnemies);
+    static cocos2d::Scene* createScene();
     
     // destructor
     ~Level();
@@ -33,11 +30,15 @@ public:
     // is level Finished
     bool isLevelFinished();
     
-private:
+    // set
+    void setDifficulty(float diff);
+    void setNrEnemies(int nr);
     
+private:
+
     bool levelStatus;
-    float difficultyLevel;
-    int nrEnemies;
+    float difficultyLevel = 1;
+    int nrEnemies = 1;
     
     ManagerEntities* entitiesManager;
     ManagerInputControls* inputManager;

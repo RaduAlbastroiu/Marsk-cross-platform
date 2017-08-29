@@ -17,10 +17,12 @@ FactoryLevel::FactoryLevel()
     createEasy();
 }
 
-Level* FactoryLevel::createLevel()
+cocos2d::Scene* FactoryLevel::createLevel()
 {
-    auto elem = currentScenario->nextLevelScenario();
-    return new Level(elem.difficulty, elem.nrEnemies);
+    //auto elem = currentScenario->nextLevelScenario();
+    auto lvl = Level::createScene();
+    
+    return lvl;
 }
 
 void FactoryLevel::createEasy()

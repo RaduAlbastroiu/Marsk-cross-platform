@@ -37,7 +37,7 @@ public:
     bool isAlive() override;
 
 private:
-    
+        
     void loadHeroSpaceShip();
     
     void setTextureCenter() override;

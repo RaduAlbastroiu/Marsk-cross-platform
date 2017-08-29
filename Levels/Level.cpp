@@ -15,12 +15,6 @@ cocos2d::Scene * Level::createScene()
     return Level::create();
 }
 
-// constructor
-Level::Level(float difficultyLevel, int nrEnemies):
-levelStatus(true), difficultyLevel(difficultyLevel), nrEnemies(nrEnemies)
-{
-}
-
 // destructor
 Level::~Level()
 {
@@ -31,6 +25,11 @@ Level::~Level()
 // kind of constructor for level
 bool Level::init()
 {
+    if (!Scene::init())
+    {
+        return false;
+    }
+    
     // create entities
     entitiesManager = new ManagerEntities(this, nrEnemies);
     // create input control
@@ -61,4 +60,16 @@ void Level::update(float delta)
         entitiesManager->update(delta);
         inputManager->update(delta);
     }
+}
+
+// set dif
+void Level::setDifficulty(float diff)
+{
+    difficultyLevel = diff;
+}
+
+// set nrEnemies
+void Level::setNrEnemies(int nr)
+{
+    nrEnemies = nr;
 }

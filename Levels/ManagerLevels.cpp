@@ -22,7 +22,7 @@ void ManagerLevels::start()
     // manage scenes here
     currentRunningScene = currentFactory->createLevel();
     
-    directorRef->runWithScene(currentRunningScene->create());
+    directorRef->runWithScene(currentRunningScene);
 }
 
 // app paused

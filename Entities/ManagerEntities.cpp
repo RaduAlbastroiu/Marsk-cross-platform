@@ -51,5 +51,6 @@ bool ManagerEntities::isHeroAlive()
 
 bool ManagerEntities::isEnemyAlive()
 {
-    return enemiesContainer->areAlive();
+    //return enemiesContainer->areAlive();
+    return true;
 }

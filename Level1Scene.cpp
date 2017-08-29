@@ -115,7 +115,7 @@ void Level1Scene::loadMovementArrows()
 
 void Level1Scene::loadHeroSpaceShip()
 {
-	heroSpaceShip = cocos2d::Sprite::create("res/elonBack.png");
+	heroSpaceShip = cocos2d::Sprite::create("res/elonCenter.png");
 	heroSpaceShip->setAnchorPoint(Vec2(0.5, 0.5));
 	heroSpaceShip->setPosition(this->getBoundingBox().getMidX(), this->getBoundingBox().size.height / 7);
 	heroSpaceShip->setScale(0.3);

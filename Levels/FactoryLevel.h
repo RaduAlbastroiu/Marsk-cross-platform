@@ -19,7 +19,7 @@ public:
     FactoryLevel();
     
     // create a level
-    Level* createLevel();
+    cocos2d::Scene* createLevel();
     
     void createEasy();
     void createMedm();

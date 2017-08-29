@@ -78,11 +78,14 @@ void Hero::setTextureCenter()
 
 void Hero::loadHeroSpaceShip()
 {
-    heroSpaceShip = cocos2d::Sprite::create("res/elonBack.png");
+    
+    heroSpaceShip = cocos2d::Sprite::create("res/elonCenter.png");
     heroSpaceShip->setAnchorPoint(Vec2(0.5, 0.5));
-    heroSpaceShip->setPosition(currentScene->getBoundingBox().getMidX(), currentScene->getBoundingBox().size.height / 7);
+    heroSpaceShip->setPosition(currentScene->getBoundingBox().getMidX(),
+                               currentScene->getBoundingBox().size.height / 6);
     heroSpaceShip->setScale(0.3);
     currentScene->addChild(heroSpaceShip);
+
 }
 
 bool Hero::isAlive()
@@ -91,4 +94,6 @@ bool Hero::isAlive()
         return true;
     return false;
 }
+
+
 

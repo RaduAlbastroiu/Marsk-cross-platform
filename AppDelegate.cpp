@@ -101,10 +101,11 @@ bool AppDelegate::applicationDidFinishLaunching() {
     register_all_packages();
 
     // run
-    //myManager->start();
+    myManager->start();
     
-    auto intro = Intro::createScene();
-    Director::getInstance()->runWithScene(intro);
+    //auto lvl = Level1Scene::createScene();
+    //auto intro = Intro::createScene();
+    //Director::getInstance()->runWithScene(lvl);
     
     return true;
 }
