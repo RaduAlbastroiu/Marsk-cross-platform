@@ -13,42 +13,25 @@
 // check collisions
 bool Projectiles::collisionWith(cocos2d::Sprite* aObj)
 {
+    auto size = projectilesContainer.size();
+    
     // check all projectiles
-    for(auto& someProjectile : projectilesContainer)
-    {
-        // if projectile hit
-        if(someProjectile->collisionWithObject(aObj))
-        {
-            // delete projectile
-            auto it = find(projectilesContainer.begin(), projectilesContainer.end(), someProjectile);
-            // dealocate memory
-            delete (*it);
-            // erase from projectiles container
-            projectilesContainer.erase(it);
-            
-            // return true for collision
-            return true;
-        }
-    }
+    projectilesContainer.erase(
+                               remove_if(projectilesContainer.begin(), projectilesContainer.end(),
+                                         [&](const auto & aProjectile) { return aProjectile->collisionWithObject(aObj); }),
+                               projectilesContainer.end());
+    
+    if(size != projectilesContainer.size())
+        return true;
     
     return false;
+
 }
 
 void Projectiles::update()
 {
-    for(auto &someProjectile : projectilesContainer)
-    {
-        if(someProjectile->isStillInViewArea())
-            continue;
-        else
-        {
-            // delete projectile
-            auto it = find(projectilesContainer.begin(), projectilesContainer.end(), someProjectile);
-            // dealocate memory
-            delete (*it);
-            // erase from projectiles container
-            projectilesContainer.erase(it);
-
-        }
-    }
+    projectilesContainer.erase(
+                               remove_if(projectilesContainer.begin(), projectilesContainer.end(),
+                                         [](const auto & aProjectile) { return aProjectile->isStillInViewArea() == false; }),
+                               projectilesContainer.end());
 }

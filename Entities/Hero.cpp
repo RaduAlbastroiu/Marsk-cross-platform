@@ -19,7 +19,7 @@ Hero::Hero(cocos2d::Scene* scene)
     
     // random number for speed
     speedHeroSpaceShip = 5;
-    speedHeroProjectiles = 5;
+    speedHeroProjectiles = 1;
     nrLifes = 3;
     
     loadHeroSpaceShip();
@@ -68,7 +68,7 @@ void Hero::setTextureLeft()
 
 void Hero::setTextureRight()
 {
-    heroSpaceShip->setTexture("res/elonRIght.png");
+    heroSpaceShip->setTexture("res/elonRight.png");
 }
 
 void Hero::setTextureCenter()

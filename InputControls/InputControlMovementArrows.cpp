@@ -57,6 +57,8 @@ bool InputControlMovementArrows::touchBegan(const cocos2d::Touch* touch, cocos2d
         loadMovementArrowLeftSelected();
             
         leftArrowPressed = true;
+        
+        return true;
     }
         
     if(rightArrow->getBoundingBox().containsPoint(touch->getLocation()))
@@ -64,14 +66,18 @@ bool InputControlMovementArrows::touchBegan(const cocos2d::Touch* touch, cocos2d
         loadMovementArrowRightSelected();
 
         rightArrowPressed = true;
+        
+        return true;
     }
     
+    return false;
 }
 
 // touch moved
 void InputControlMovementArrows::touchMoved(const cocos2d::Touch* touch, cocos2d::Event* event)
 {
     // if the touch moved outside the left arrow box
+    /*
     if(leftArrowPressed == true &&
        !leftArrow->getBoundingBox().containsPoint(touch->getLocation()))
     {
@@ -88,7 +94,7 @@ void InputControlMovementArrows::touchMoved(const cocos2d::Touch* touch, cocos2d
         
         rightArrowPressed = false;
     }
-    
+    */
 }
 
 // touch ended
@@ -149,7 +155,7 @@ void InputControlMovementArrows::loadMovementArrowLeftSelected()
 
 void InputControlMovementArrows::loadMovementArrowRightSelected()
 {
-    leftArrow->setTexture("res/rightArrowPressed.png");
+    rightArrow->setTexture("res/rightArrowPressed.png");
 }
 
 void InputControlMovementArrows::loadMovementArrowLeftUnselected()
@@ -159,7 +165,7 @@ void InputControlMovementArrows::loadMovementArrowLeftUnselected()
 
 void InputControlMovementArrows::loadMovementArrowRightUnselected()
 {
-    leftArrow->setTexture("res/rightArrowPressed.png");
+    rightArrow->setTexture("res/rightArrow.png");
 }
 
 // update

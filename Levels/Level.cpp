@@ -52,14 +52,12 @@ bool Level::isLevelFinished()
 // update
 void Level::update(float delta)
 {
-    if(!entitiesManager->isHeroAlive() || entitiesManager->isEnemyAlive())
-        levelStatus = false;
+    // level status update later
+    //if(!entitiesManager->isHeroAlive() || entitiesManager->isEnemyAlive())
+       // levelStatus = false;
     
-    if(levelStatus)
-    {
-        entitiesManager->update(delta);
-        inputManager->update(delta);
-    }
+    entitiesManager->update(delta);
+    inputManager->update(delta);
 }
 
 // set dif

@@ -35,7 +35,8 @@ ManagerEntities::~ManagerEntities()
 void ManagerEntities::update(float delta)
 {
     theHero -> update(delta);
-    enemiesContainer -> update(delta);
+    // no enemies yet
+    //enemiesContainer -> update(delta);
 }
 
 // getter

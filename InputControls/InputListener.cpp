@@ -13,7 +13,7 @@ using namespace std;
 
 // constructor
 InputListener::InputListener(InputControlMovementArrows* aArrow, InputControlProjectiles* aProjecctile)
-:Arrow(Arrow), Projectile(aProjecctile)
+:Arrow(aArrow), Projectile(aProjecctile)
 {
     // create touch listener
     touchListener = EventListenerTouchOneByOne::create();

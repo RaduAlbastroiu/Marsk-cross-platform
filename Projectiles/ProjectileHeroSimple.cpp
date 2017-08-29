@@ -16,7 +16,7 @@ ProjectileHeroSimple::ProjectileHeroSimple(cocos2d::Scene* aScene, Sprite* aHero
     scene = aScene;
     // set speed
     speed = aSpeed;
-    scale = 0.2;
+    scale = 0.1;
     
     projectile = Sprite::create("res/laserGreen.png");
     
@@ -35,11 +35,7 @@ ProjectileHeroSimple::ProjectileHeroSimple(cocos2d::Scene* aScene, Sprite* aHero
 // destructor
 ProjectileHeroSimple::~ProjectileHeroSimple()
 {
-    // remove from scene
     scene->removeChild(projectile);
-    
-    // clear memory
-    delete projectile;
 }
 
 // returns true if there is a collision

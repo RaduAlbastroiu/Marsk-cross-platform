@@ -24,6 +24,7 @@ public:
     virtual void addSimpleProjectile(cocos2d::Scene* aScene, Sprite* aEntity, float aSpeed) = 0;
     
 protected:
-    vector< Projectile* > projectilesContainer;
+    vector<unique_ptr<Projectile>> projectilesContainer;
+
     
 };

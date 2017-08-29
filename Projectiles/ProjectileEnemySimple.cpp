@@ -16,7 +16,7 @@ ProjectileEnemySimple::ProjectileEnemySimple(cocos2d::Scene* aScene, Sprite* aHe
     scene = aScene;
     // set speed
     speed = aSpeed;
-    scale = 0.2;
+    scale = 0.1;
     
     projectile = Sprite::create("res/laserRed.png");
     
@@ -36,7 +36,6 @@ ProjectileEnemySimple::ProjectileEnemySimple(cocos2d::Scene* aScene, Sprite* aHe
 ProjectileEnemySimple::~ProjectileEnemySimple()
 {
     scene->removeChild(projectile);
-    delete projectile;
 }
 
 // returns true if there is a collision

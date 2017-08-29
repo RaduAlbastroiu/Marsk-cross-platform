@@ -19,17 +19,13 @@ using namespace std;
 // destructor
 ProjectilesEnemy::~ProjectilesEnemy()
 {
-    for(auto it = projectilesContainer.begin(); it != projectilesContainer.end(); ++it)
-    {
-        delete (*it);
-    }
     projectilesContainer.clear();
 }
 
 // add new enemy projectile simple
 void ProjectilesEnemy::addSimpleProjectile(cocos2d::Scene* scene, Sprite* enemySpaceShip, float speed)
 {
-    Projectile* ptr = new ProjectileEnemySimple(scene, enemySpaceShip, speed);
+    unique_ptr<Projectile> proj = move(make_unique<ProjectileEnemySimple>(scene, enemySpaceShip, speed));
     
-    projectilesContainer.push_back(ptr);
+    projectilesContainer.push_back(move(proj));
 }
