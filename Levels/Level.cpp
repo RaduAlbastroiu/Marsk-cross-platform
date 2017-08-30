@@ -42,22 +42,29 @@ bool Level::init()
     return true;
 }
 
-// is level finished
-bool Level::isLevelFinished()
-{
-    //return levelStatus;
-    return false;
-}
-
 // update
 void Level::update(float delta)
 {
-    // level status update later
-    //if(!entitiesManager->isHeroAlive() || entitiesManager->isEnemyAlive())
-       // levelStatus = false;
-    
     entitiesManager->update(delta);
     inputManager->update(delta);
+    
+    // level status update
+    if(entitiesManager->isHeroAlive() == false)
+        loseNextScene();
+    
+    if(entitiesManager->isEnemyAlive() == false)
+        winNextScene();
+    
+}
+
+void Level::winNextScene()
+{
+    Director::getInstance()->replaceScene(winScene);
+}
+
+void Level::loseNextScene()
+{
+    Director::getInstance()->replaceScene(loseScene);
 }
 
 // set dif
@@ -70,4 +77,14 @@ void Level::setDifficulty(float diff)
 void Level::setNrEnemies(int nr)
 {
     nrEnemies = nr;
+}
+
+void Level::setNextWinScene(cocos2d::Scene* nextScene)
+{
+    winScene = nextScene;
+}
+
+void Level::setNextLoseScene(cocos2d::Scene* nextScene)
+{
+    loseScene = nextScene;
 }

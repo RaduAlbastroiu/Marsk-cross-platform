@@ -27,12 +27,16 @@ public:
     // update
     virtual void update(float delta) override;
     
-    // is level Finished
-    bool isLevelFinished();
+    // in case of win
+    void winNextScene();
+    // in case of lose
+    void loseNextScene();
     
     // set
     void setDifficulty(float diff);
     void setNrEnemies(int nr);
+    void setNextWinScene(cocos2d::Scene* nextScene);
+    void setNextLoseScene(cocos2d::Scene* nextScene);
     
 private:
 
@@ -42,5 +46,8 @@ private:
     
     ManagerEntities* entitiesManager;
     ManagerInputControls* inputManager;
+    
+    cocos2d::Scene* winScene;
+    cocos2d::Scene* loseScene;
     
 };

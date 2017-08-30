@@ -30,7 +30,7 @@ static cocos2d::Size largeResolutionSize = cocos2d::Size(2048, 1536);
 
 AppDelegate::AppDelegate()
 {
-    myManager = new ManagerLevels(Director::getInstance());
+    myManager = new MyDirector(Director::getInstance());
 }
 
 AppDelegate::~AppDelegate() 

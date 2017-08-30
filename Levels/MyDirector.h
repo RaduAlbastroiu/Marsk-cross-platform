@@ -11,15 +11,15 @@
 #include "Levels/Level.h"
 #include "Levels/FactoryLevel.h"
 
-class ManagerLevels
+class MyDirector
 {
 public:
     
     // constructor
-    ManagerLevels(Director* aDirectorRef);
+    MyDirector(Director* aDirectorRef);
     
     // destructor
-    ~ManagerLevels() = default;
+    ~MyDirector() = default;
     
     // app start
     void start();
@@ -35,8 +35,6 @@ protected:
     // play a scene
     void runWithScene(cocos2d::Scene* aScene);
     
-    cocos2d::Scene* currentRunningScene;
-    Level* currentLevel;
     FactoryLevel* currentFactory;
     
     Director* directorRef;

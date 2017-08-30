@@ -2,7 +2,7 @@
 #define  _APP_DELEGATE_H_
 
 #include "cocos2d.h"
-#include "Levels/ManagerLevels.h"
+#include "Levels/MyDirector.h"
 
 /**
 @brief    The cocos2d Application.
@@ -38,7 +38,7 @@ public:
     
 private:
     // my manager for levels
-    ManagerLevels* myManager;
+    MyDirector* myManager;
 };
 
 #endif // _APP_DELEGATE_H_
