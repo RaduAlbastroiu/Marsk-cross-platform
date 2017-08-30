@@ -10,7 +10,7 @@
 #include "Header.h"
 #include "Levels/Level.h"
 #include "Levels/Scenario.h"
-
+#include "Levels/Coordinator.h"
 
 class FactoryLevel
 {

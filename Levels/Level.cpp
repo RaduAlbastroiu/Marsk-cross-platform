@@ -50,21 +50,21 @@ void Level::update(float delta)
     
     // level status update
     if(entitiesManager->isHeroAlive() == false)
-        loseNextScene();
+        this->loseNextScene();
     
     if(entitiesManager->isEnemyAlive() == false)
-        winNextScene();
+        this->winNextScene();
     
 }
 
 void Level::winNextScene()
 {
-    Director::getInstance()->replaceScene(winScene);
+    Director::getInstance()->replaceScene(coordinator->winNext());
 }
 
 void Level::loseNextScene()
 {
-    Director::getInstance()->replaceScene(loseScene);
+    Director::getInstance()->replaceScene(coordinator->loseNext());
 }
 
 // set dif
@@ -79,12 +79,7 @@ void Level::setNrEnemies(int nr)
     nrEnemies = nr;
 }
 
-void Level::setNextWinScene(cocos2d::Scene* nextScene)
+void Level::setCoorinator(Coordinator* coordinator)
 {
-    winScene = nextScene;
-}
-
-void Level::setNextLoseScene(cocos2d::Scene* nextScene)
-{
-    loseScene = nextScene;
+    this->coordinator = coordinator;
 }

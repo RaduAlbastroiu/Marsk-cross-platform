@@ -21,7 +21,14 @@ cocos2d::Scene* FactoryLevel::createLevel()
 {
     //auto elem = currentScenario->nextLevelScenario();
     auto lvl = Level::createScene();
-    
+    auto sc = dynamic_cast<Level*>(lvl);
+    if(sc)
+    {
+        auto scene = currentScenario->nextLevelScenario();
+        sc->setDifficulty(scene.difficulty);
+        sc->setNrEnemies(scene.nrEnemies);
+    }
+
     return lvl;
 }
 

@@ -18,7 +18,6 @@ void Scenario::easyScenario()
     }
 }
 
-
 void Scenario::mediumScenario()
 {
     for(int i = 0; i < 9 ; i++)

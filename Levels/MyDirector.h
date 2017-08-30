@@ -10,6 +10,7 @@
 #include "Header.h"
 #include "Levels/Level.h"
 #include "Levels/FactoryLevel.h"
+#include "Levels/CoordinatorLevel.h"
 
 class MyDirector
 {
@@ -36,7 +37,7 @@ protected:
     void runWithScene(cocos2d::Scene* aScene);
     
     FactoryLevel* currentFactory;
-    
+    CoordinatorLevel* coordinator;
     Director* directorRef;
     
 };

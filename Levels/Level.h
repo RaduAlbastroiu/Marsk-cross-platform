@@ -10,6 +10,7 @@
 #include "Header.h"
 #include "Entities/ManagerEntities.h"
 #include "InputControls/ManagerInputControls.h"
+#include "Levels/Coordinator.h"
 
 class Level : public cocos2d::Scene
 {
@@ -27,16 +28,13 @@ public:
     // update
     virtual void update(float delta) override;
     
-    // in case of win
-    void winNextScene();
-    // in case of lose
-    void loseNextScene();
-    
     // set
     void setDifficulty(float diff);
     void setNrEnemies(int nr);
-    void setNextWinScene(cocos2d::Scene* nextScene);
-    void setNextLoseScene(cocos2d::Scene* nextScene);
+    void setCoorinator(Coordinator* coordinator);
+    
+    void winNextScene();
+    void loseNextScene();
     
 private:
 
@@ -46,8 +44,5 @@ private:
     
     ManagerEntities* entitiesManager;
     ManagerInputControls* inputManager;
-    
-    cocos2d::Scene* winScene;
-    cocos2d::Scene* loseScene;
-    
+    Coordinator* coordinator;
 };

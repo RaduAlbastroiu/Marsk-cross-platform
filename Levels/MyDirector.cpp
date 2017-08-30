@@ -13,8 +13,8 @@
 MyDirector::MyDirector(Director* aDirectorRef)
 {
     directorRef = aDirectorRef;
-
     currentFactory = new FactoryLevel();
+    coordinator = new CoordinatorLevel(currentFactory);
 }
 
 // app start
@@ -25,8 +25,7 @@ void MyDirector::start()
     auto sc = dynamic_cast<Level*>(firstScene);
     if(sc)
     {
-        sc->setDifficulty(0.5);
-        sc->setNrEnemies(5);
+        sc->setCoorinator(coordinator);
     }
     
     directorRef->runWithScene(firstScene);
