@@ -13,6 +13,7 @@
 ManagerLevels::ManagerLevels(Director* aDirectorRef)
 {
     directorRef = aDirectorRef;
+
     currentFactory = new FactoryLevel();
 }
 

@@ -77,7 +77,6 @@ bool InputControlMovementArrows::touchBegan(const cocos2d::Touch* touch, cocos2d
 void InputControlMovementArrows::touchMoved(const cocos2d::Touch* touch, cocos2d::Event* event)
 {
     // if the touch moved outside the left arrow box
-    /*
     if(leftArrowPressed == true &&
        !leftArrow->getBoundingBox().containsPoint(touch->getLocation()))
     {
@@ -94,7 +93,7 @@ void InputControlMovementArrows::touchMoved(const cocos2d::Touch* touch, cocos2d
         
         rightArrowPressed = false;
     }
-    */
+    
 }
 
 // touch ended

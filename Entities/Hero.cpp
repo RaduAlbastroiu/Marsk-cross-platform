@@ -46,14 +46,20 @@ void Hero::fireSimpleProjectile()
 
 void Hero::moveLeft(float delta)
 {
-    setTextureLeft();
-    heroSpaceShip->runAction(MoveBy::create(delta, Vec2(-speedHeroSpaceShip, 0)));
+    if(heroSpaceShip->getBoundingBox().getMinX() > currentScene->getBoundingBox().getMinX())
+    {
+        setTextureLeft();
+        heroSpaceShip->runAction(MoveBy::create(delta, Vec2(-speedHeroSpaceShip, 0)));
+    }
 }
 
 void Hero::moveRight(float delta)
 {
-    setTextureRight();
-    heroSpaceShip->runAction(MoveBy::create(delta, Vec2(+speedHeroSpaceShip, 0)));
+    if(heroSpaceShip->getBoundingBox().getMaxX() < currentScene->getBoundingBox().getMaxX())
+    {
+        setTextureRight();
+        heroSpaceShip->runAction(MoveBy::create(delta, Vec2(+speedHeroSpaceShip, 0)));
+    }
 }
 
 void Hero::moveStop()

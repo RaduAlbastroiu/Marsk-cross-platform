@@ -41,6 +41,7 @@ void InputControlProjectiles::update(float delta)
 {
     if(fireProjectile)
     {
+        fireProjectile = false;
         targetEntity->fireSimpleProjectile();
     }
 }
