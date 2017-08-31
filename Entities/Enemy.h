@@ -21,7 +21,7 @@ class Enemy : public Entity
 public:
     
     // constructor
-    Enemy(cocos2d::Scene* scene);
+    Enemy(cocos2d::Scene* scene, float positionX, float positionY);
     
     // destructor
     ~Enemy();
@@ -50,6 +50,9 @@ private:
     
     float speedSpaceShip;
     float speedEnemyProjectiles;
+    
+    float posX;
+    float posY;
     
     Projectiles* projectileEntity;
     cocos2d::Sprite* spaceShip;

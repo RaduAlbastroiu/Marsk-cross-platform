@@ -9,7 +9,8 @@
 #include "Entities/Enemy.h"
 
 // constructor
-Enemy::Enemy(cocos2d::Scene* scene)
+Enemy::Enemy(cocos2d::Scene* scene, float positionX, float positionY)
+:posX(positionX),posY(positionY)
 {
     
     // asign projectile object
@@ -28,6 +29,7 @@ Enemy::Enemy(cocos2d::Scene* scene)
 // destructor
 Enemy::~Enemy()
 {
+    currentScene->removeChild(spaceShip);
     delete projectileEntity;
     delete spaceShip;
 }
@@ -87,8 +89,7 @@ void Enemy::loadSpaceShip()
     
     spaceShip = cocos2d::Sprite::create("res/redShip.png");
     spaceShip->setAnchorPoint(Vec2(0.5, 0.5));
-    spaceShip->setPosition(currentScene->getBoundingBox().size.width/2,
-                           currentScene->getBoundingBox().size.height * 5/6);
+    spaceShip->setPosition(posX, posY);
     
     spaceShip->setScale(0.2);
     currentScene->addChild(spaceShip);
