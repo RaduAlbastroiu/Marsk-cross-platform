@@ -11,6 +11,7 @@
 #include "Entities/ManagerEntities.h"
 #include "InputControls/ManagerInputControls.h"
 #include "Levels/Coordinator.h"
+#include "Levels/LevelBackground.h"
 
 class Level : public cocos2d::Scene
 {
@@ -45,4 +46,5 @@ private:
     ManagerEntities* entitiesManager;
     ManagerInputControls* inputManager;
     Coordinator* coordinator;
+    LevelBackground* background;
 };

@@ -20,6 +20,9 @@ Level::~Level()
 {
     delete entitiesManager;
     delete inputManager;
+    delete background;
+    
+    this->removeAllChildren();
 }
 
 // kind of constructor for level
@@ -30,12 +33,12 @@ bool Level::init()
         return false;
     }
     
+    // add background stuff
+    background = new LevelBackground(this);
     // create entities
     entitiesManager = new ManagerEntities(this, nrEnemies);
     // create input control
     inputManager = new ManagerInputControls(this, entitiesManager->getHero());
-    
-    // add background stuff !!!!
     
     this->scheduleUpdate();
     

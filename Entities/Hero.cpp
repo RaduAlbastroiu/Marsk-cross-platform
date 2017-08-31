@@ -90,7 +90,7 @@ void Hero::loadHeroSpaceShip()
     heroSpaceShip->setAnchorPoint(Vec2(0.5, 0.5));
     heroSpaceShip->setPosition(currentScene->getBoundingBox().getMidX(),
                                currentScene->getBoundingBox().size.height / 6);
-    heroSpaceShip->setScale(0.3);
+    heroSpaceShip->setScale(0.25);
     currentScene->addChild(heroSpaceShip);
 
 }
