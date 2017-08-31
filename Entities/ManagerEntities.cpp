@@ -14,7 +14,7 @@ ManagerEntities::ManagerEntities(cocos2d::Scene* aScene, int nrEnemies)
 {
     currentScene = aScene;
     
-    // create nr Enemies
+    // add enemies
     
     theHero = new Hero(currentScene);
 

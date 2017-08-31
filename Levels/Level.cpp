@@ -50,6 +50,7 @@ void Level::update(float delta)
 {
     entitiesManager->update(delta);
     inputManager->update(delta);
+    background->update(delta);
     
     // level status update
     if(entitiesManager->isHeroAlive() == false)
