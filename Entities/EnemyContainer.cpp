@@ -16,7 +16,7 @@ EnemyContainer::~EnemyContainer()
 
 void EnemyContainer::addEnemy(unique_ptr<Enemy> aEnemy)
 {
-    enemyContainer.emplace_back(aEnemy);
+    enemyContainer.emplace_back(move(aEnemy));
 }
 
 void EnemyContainer::update(float delta)
