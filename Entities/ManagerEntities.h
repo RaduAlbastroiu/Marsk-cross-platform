@@ -15,7 +15,7 @@ class ManagerEntities
 {
 public:
     // constructor
-    ManagerEntities(cocos2d::Scene* aScene, int nrEnemies);
+    ManagerEntities(cocos2d::Scene* aScene, int nrEnemies, float difficulty);
     
     // destructor
     ~ManagerEntities();

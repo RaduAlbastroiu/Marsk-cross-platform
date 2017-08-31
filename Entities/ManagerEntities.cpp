@@ -10,11 +10,12 @@
 #include "Entities/ManagerEntities.h"
 
 // constructor
-ManagerEntities::ManagerEntities(cocos2d::Scene* aScene, int nrEnemies)
+ManagerEntities::ManagerEntities(cocos2d::Scene* aScene, int nrEnemies, float difficulty)
 {
     currentScene = aScene;
     
     // add enemies
+    // enemies = new managerEnemies(nrEnemies, difficulty);
     
     theHero = new Hero(currentScene);
 

@@ -36,7 +36,7 @@ bool Level::init()
     // add background stuff
     background = new LevelBackground(this);
     // create entities
-    entitiesManager = new ManagerEntities(this, nrEnemies);
+    entitiesManager = new ManagerEntities(this, nrEnemies, difficultyLevel);
     // create input control
     inputManager = new ManagerInputControls(this, entitiesManager->getHero());
     
