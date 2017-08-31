@@ -37,6 +37,11 @@ void ManagerEntities::update(float delta)
     theHero -> update(delta);
     // no enemies yet
     //enemiesContainer -> update(delta);
+    
+    auto projHero = theHero->getProjectile();
+    // intersects enemy
+    
+    // same for enemy if intersects hero
 }
 
 // getter

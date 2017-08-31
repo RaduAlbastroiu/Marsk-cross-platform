@@ -30,6 +30,8 @@ public:
     virtual void moveStop() = 0;
     
     virtual bool isAlive() = 0;
+    
+    virtual void hit() = 0;
 
 protected:
     

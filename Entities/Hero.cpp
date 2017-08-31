@@ -23,6 +23,7 @@ Hero::Hero(cocos2d::Scene* scene)
     nrLifes = 3;
     
     loadHeroSpaceShip();
+    loadHeroLifes();
 }
 
 // destructor
@@ -94,6 +95,21 @@ void Hero::loadHeroSpaceShip()
 
 }
 
+void Hero::loadHeroLifes()
+{
+    for (int i = 1; i <= nrLifes; i++)
+    {
+        auto life = Sprite::create("res/life.png");
+        life->setAnchorPoint(Vec2(0.5, 0.5));
+        life->setScale(0.125);
+        int x = currentScene->getBoundingBox().size.width - (i * life->getBoundingBox().size.width);
+        int y = currentScene->getBoundingBox().size.height * 0.895;
+        life->setPosition(Vec2(x, y));
+        heroLifes.push_back(life);
+        currentScene->addChild(life, 3);
+    }
+}
+
 bool Hero::isAlive()
 {
     if(nrLifes)
@@ -101,5 +117,24 @@ bool Hero::isAlive()
     return false;
 }
 
+Projectiles* Hero::getProjectile()
+{
+    return projectileEntity;
+}
 
+void Hero::hit()
+{
+    // destroy one life and animation for hero spaceship
+    if (nrLifes)
+    {
+        currentScene->removeChild(heroLifes[heroLifes.size() - 1]);
+        heroLifes.pop_back();
+        nrLifes--;
+    }
+    if (nrLifes == 0)
+    {
+        // run explosion
+        currentScene->removeChild(heroSpaceShip);
+    }
+}
 

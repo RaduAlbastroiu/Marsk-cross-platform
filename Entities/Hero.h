@@ -35,10 +35,15 @@ public:
     void moveStop() override;
     
     bool isAlive() override;
+    
+    void hit() override;
+    
+    Projectiles* getProjectile();
 
 private:
         
     void loadHeroSpaceShip();
+    void loadHeroLifes();
     
     void setTextureCenter() override;
     void setTextureLeft() override;
@@ -50,6 +55,6 @@ private:
     Projectiles* projectileEntity;
     cocos2d::Sprite* heroSpaceShip;
     cocos2d::Scene* currentScene;
-    
+    vector < cocos2d::Sprite* > heroLifes;
 };
 
